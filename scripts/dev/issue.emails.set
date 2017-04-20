@@ -1,0 +1,1 @@
+redis-cli KEYS user-* | xargs -I key redis-cli hset key issue_emails true 

@@ -1,0 +1,11 @@
+
+body { 
+  background: white; 
+  -webkit-print-color-adjust: exact;
+} 
+
+#sidebar, #topbar, .profile-controls, .calendar-controls, .nav-tabs, .schedule-controls {
+  display: none;
+}
+
+

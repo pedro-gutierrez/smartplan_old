@@ -1,0 +1,14 @@
+uploads/*
+old
+deps
+*.boot
+*.script
+*.dump
+.DS_Store
+**/*.beam
+**/*.log
+**/*.out
+node_modules
+**/*.swp
+**/*.swo
+**/#*#

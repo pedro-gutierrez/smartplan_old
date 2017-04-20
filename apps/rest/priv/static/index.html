@@ -1,0 +1,3131 @@
+<!DOCTYPE html>
+<html id="app">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SMARTPLAN</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/img/favicon.ico">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/select2.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-timepicker.css" rel="stylesheet" />
+    <link href="/css/custom.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+  </head>
+  <body class="{{style}}" id="page-top">
+    <component :is="content" keep-alive></component>
+
+    <div id="landing" class="{{landing}}" style="display:none !important;">
+      <div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{ 'app_name' | i18n }}</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="page-scroll" href="#page-top">{{ 'home' | i18n }}</a></li>
+              <li><a class="page-scroll" href="#features">{{ 'features' | i18n }}</a></li>
+              <!-- <li><a class="page-scroll" href="#team">{{ 'team' | i18n }}</a></li>
+              <li><a class="page-scroll" href="#pricing">{{ 'pricing' | i18n }}</a></li> -->
+              <li><a class="page-scroll" href="#contact">{{ 'contact' | i18n }}</a></li>
+              <li><a class="page-scroll" href="#" v-on:click="$r( 'sign_up')" >{{ 'sign_up' | i18n }}</a></li>
+              <li><a class="page-scroll" href="#" v-on:click="$r( 'sign_in')">{{ 'sign_in' | i18n }}</a></li>
+            </ul>
+          </div>
+        </div>
+        </nav>
+      </div>
+      <div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+          <!-- <li data-target="#inSlider" data-slide-to="1"></li> -->
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>{{ 'website_home_heading1' | i18n }}<br/>
+                  {{ 'website_home_heading2' | i18n }}<br/>
+                  {{ 'website_home_heading3' | i18n }}<br/>
+                  {{ 'website_home_heading4' | i18n }}</h1>
+                <p>{{ 'website_home_subheading' | i18n }}</p>
+                <p>
+                <a class="btn btn-lg btn-primary" href="#features" role="button">{{ 'features' | i18n }}</a>
+                </p>
+              </div>
+              <div class="carousel-image wow zoomIn">
+                <img src="/img/landing/laptop2.png" alt="laptop"/>
+              </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one"></div>
+
+          </div>
+          <!-- <div class="item">
+            <div class="container">
+              <div class="carousel-caption blank">
+                <h1>We create meaningful <br/> interfaces that inspire.</h1>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <p><a class="btn btn-lg btn-primary" href="#features" role="button">{{ 'features' | i18n }}</a></p>
+              </div>
+            </div>
+            <div class="header-back two"></div>
+          </div> -->
+        </div>
+      </div>
+
+
+      <section id="features" class="container services">
+      <div class="row">
+        <div class="col-sm-3">
+          <h2><i class="fa fa-sitemap"></i> {{ 'organizations' | i18n }} </h2>
+          <p>{{ 'organizations_summary' | i18n  }}</p>
+          <!-- <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p> -->
+        </div>
+        <div class="col-sm-3">
+          <h2><i class="fa fa-suitcase"></i> {{ 'templates' | i18n }}</h2>
+          <p>{{ 'templates_summary' | i18n }}</p>
+        </div>
+        <div class="col-sm-3">
+          <h2><i class="fa fa-calendar"></i> {{ 'schedules' | i18n }}</h2>
+          <p>{{ 'schedules_summary' | i18n }}</p>
+        </div>
+        <div class="col-sm-3">
+          <h2><i class="fa fa-cogs"></i> {{ 'engine' | i18n }}</h2>
+          <p>{{ 'engine_summary' | i18n }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <h2><i class="fa fa-sliders"></i> {{ 'profiles_and_rules' | i18n }} </h2>
+          <p>{{ 'profiles_and_rules_summary' | i18n }}</p>
+        </div>
+        <div class="col-sm-3">
+          <h2><i class="fa fa-tags"></i> {{ 'tags' | i18n }} </h2>
+          <p>{{ 'tags_summary' | i18n }}</p>
+        </div>
+        <div class="col-sm-3">
+          <h2><i class="fa fa-bar-chart-o"></i> {{ 'metrics' | i18n }} </h2>
+          <p>{{ 'metrics_summary' | i18n }}</p>
+        </div>
+        <div class="col-sm-3">
+          <h2><i class="fa fa-bell"></i> {{ 'notifications' | i18n }} </h2>
+          <p>{{ 'notifications_summary' | i18n }}<p>
+        </div>
+
+      </div>
+      </section>
+
+      <!--  
+      <section id="team" class="gray-section team">
+      <div class="container">
+        <div class="row m-b-lg">
+          <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>Our Team</h1>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 wow fadeInLeft">
+            <div class="team-member">
+              <img src="/img/landing/avatar3.jpg" class="img-responsive img-circle img-small" alt="">
+              <h4><span class="navy">Amelia</span> Smith</h4>
+              <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus. </p>
+              <ul class="list-inline social-icon">
+                <li><a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="team-member wow zoomIn">
+              <img src="/img/landing/avatar1.jpg" class="img-responsive img-circle" alt="">
+              <h4><span class="navy">John</span> Novak</h4>
+              <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.</p>
+              <ul class="list-inline social-icon">
+                <li><a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4 wow fadeInRight">
+            <div class="team-member">
+              <img src="/img/landing/pedro.png" class="img-responsive img-circle img-small" alt="">
+              <h4><span class="navy">Pedro</span> Gutiérrez</h4>
+              <p>{{ 'head_of_engineering' | i18n }}</p>
+              <ul class="list-inline social-icon">
+                <li><a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li><a href="https://www.facebook.com/sicozu"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/profile/view?id=AAIAAAPXrpgB9KsPzSFHQl1jZd2xcdVe5xa_FOc&trk=nav_responsive_tab_profile"><i class="fa fa-linkedin"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+          </div>
+        </div>
+      </div>
+      </section>
+
+
+      <section id="pricing" class="pricing">
+      <div class="container">
+        <div class="row m-b-lg">
+          <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>App Pricing</h1>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 wow zoomIn">
+            <ul class="pricing-plan list-unstyled">
+              <li class="pricing-title">
+              Basic
+              </li>
+              <li class="pricing-desc">
+              Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.
+              </li>
+              <li class="pricing-price">
+              <span>$16</span> / month
+              </li>
+              <li>
+              Dashboards
+              </li>
+              <li>
+              Projects view
+              </li>
+              <li>
+              Contacts
+              </li>
+              <li>
+              Calendar
+              </li>
+              <li>
+              AngularJs
+              </li>
+              <li>
+              <a class="btn btn-primary btn-xs" href="#">Signup</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 wow zoomIn">
+            <ul class="pricing-plan list-unstyled selected">
+              <li class="pricing-title">
+              Standard
+              </li>
+              <li class="pricing-desc">
+              Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.
+              </li>
+              <li class="pricing-price">
+              <span>$22</span> / month
+              </li>
+              <li>
+              Dashboards
+              </li>
+              <li>
+              Projects view
+              </li>
+              <li>
+              Contacts
+              </li>
+              <li>
+              Calendar
+              </li>
+              <li>
+              AngularJs
+              </li>
+              <li>
+              <strong>Support platform</strong>
+              </li>
+              <li class="plan-action">
+              <a class="btn btn-primary btn-xs" href="#">Signup</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 wow zoomIn">
+            <ul class="pricing-plan list-unstyled">
+              <li class="pricing-title">
+              Premium
+              </li>
+              <li class="pricing-desc">
+              Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.
+              </li>
+              <li class="pricing-price">
+              <span>$160</span> / month
+              </li>
+              <li>
+              Dashboards
+              </li>
+              <li>
+              Projects view
+              </li>
+              <li>
+              Contacts
+              </li>
+              <li>
+              Calendar
+              </li>
+              <li>
+              AngularJs
+              </li>
+              <li>
+              <a class="btn btn-primary btn-xs" href="#">Signup</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row m-t-lg">
+          <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
+            <p>*Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. <span class="navy">Various versions</span>  have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+          </div>
+        </div>
+      </div>
+
+      </section> -->
+
+      <section id="contact" class="gray-section contact">
+      <div class="container">
+        <div class="row m-b-lg">
+          <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>{{ 'contact_us' | i18n }}</h1>
+            <p>{{ 'we_speak' | i18n}}</p>
+          </div>
+        </div>
+        <div class="row m-b-lg">
+          <div class="col-lg-3 col-lg-offset-3">
+            <address>
+              <strong><span class="navy">Okogu</span></strong><br/>
+              92, Rue de Lourmel<br/>
+              75015 Paris<br/>
+              France<br/>
+              <abbr title="Phone">M:</abbr> (+34) 645-512-342
+            </address>
+          </div>
+          <div class="col-lg-4">
+            <p class="text-color">
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <a href="mailto:contact@okogu.com" class="btn btn-primary">{{ 'send_us_mail' | i18n }}</a>
+            <p class="m-t-sm">
+            
+            </p>
+            <ul class="list-inline social-icon">
+              <li><a href="#"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li><a href="#"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+            <p><strong>&copy; {{ 'copyright' | i18n }}</strong><br/></p>
+          </div>
+        </div>
+      </div>
+      </section>
+    </div>
+
+    <script type="text/template" id="sign_in">
+      <div class="text-center">
+        <h1 class="logo-name">{{ 'app_name' | i18n }}</h1>
+      </div>
+      <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+          <h3>{{ 'sign_in_title' | i18n }}</h3>
+          <p>{{{ 'sign_in_subtitle' | i18n }}}</p>
+          <usermessages></usermessages>
+          <div>
+            <div class="form-group">
+              <input type="email" v-model="email" class="form-control" placeholder="{{ 'email' | i18n }}" required="">
+            </div>
+            <div class="form-group">
+              <input type="password" v-model="password" class="form-control" placeholder="{{ 'password' | i18n }}" required="">
+            </div>
+            <a href="#" type="submit" role="link" v-on:click=" $r('submit')" class="btn btn-primary block full-width m-b">{{ sign_in_label | i18n }}</button>
+
+            <a href="#" v-on:click=" $r( 'forgot_password' )"><small>{{ 'forgot_password' | i18n }}</small></a>
+            <p class="text-muted text-center"><small>{{ 'sign_in_not_yet' | i18n }}</small></p>
+            <a class="btn btn-sm btn-white btn-block" href="#" v-on:click=" $r( 'sign_up' )">{{ 'sign_up' | i18n }}</a>
+          </div>
+          <p class="m-t"><a href="#" v-on:click=" $r( 'back' )"><small>{{ 'back' | i18n }}</small></a></p>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="sign_up">
+      <div class="text-center">
+        <h1 class="logo-name">{{ 'app_name' | i18n }}</h1>
+      </div>
+      <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div class="{{form}}">
+          <h3>{{ 'sign_up_title' | i18n }}</h3>
+          <p>{{{ 'sign_up_subtitle' | i18n }}}</p>
+          <usermessages></usermessages>
+          <form class="m-t">
+            <div class="form-group">
+              <input type="text" v-model="first" class="form-control" placeholder="{{ 'first_name' | i18n }}" required="" autofocus="">
+            </div>
+            <div class="form-group">
+              <input type="text" v-model="last" class="form-control" placeholder="{{ 'last_name' | i18n }}" required="">
+            </div>
+            <div class="form-group">
+              <input type="email" v-model="email" class="form-control" placeholder="{{ 'email' | i18n }}" required="">
+            </div>
+            <a href="#" class="btn btn-primary block full-width m-b" v-on:click=" $r( 'submit' )">
+              {{ sign_up_label | i18n }}
+            </a>
+            <p class="text-muted text-center"><small>{{ 'sign_up_already' | i18n }}</small></p>
+            <a class="btn btn-sm btn-white btn-block" href="#" v-on:click=" $r( 'sign_in' )">{{ 'sign_in' | i18n }}</a>
+          </form>
+          <p class="m-t"><a href="#" v-on:click=" $r( 'back' )"><small>{{ 'back' | i18n }}</small></a></p>
+        </div>
+        <div class="{{success}}">
+          <h3 class="font-bold">{{ 'sign_up_success_title' | i18n }}</h3>
+          <div>
+            {{ 'sign_up_success_desc' | i18n }}<br><br>
+            {{ 'go_to_main_page' | i18n }} <br><a href="/" class="btn btn-primary m-t">{{ 'app_name' | i18n }}</a>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="forgot_password">
+      <div class="text-center">
+        <h1 class="logo-name">{{ 'app_name' | i18n }}</h1>
+      </div>
+      <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div class="{{form}}">
+          <h3>{{ 'password_forgot_title' | i18n }}</h3>
+          <p>{{ 'password_forgot_subtitle' | i18n }}</p>
+          <usermessages></usermessages>
+          <form class="m-t" role="form">
+            <div class="form-group">
+              <input type="email" v-model="email" class="form-control" placeholder="{{ 'email' | i18n }}" required="">
+            </div>
+            <a href="#" v-on:click=" $r( 'submit' )" class="btn btn-primary block full-width m-b">{{ submit_label | i18n }}</a>
+          </form>
+          <p class="m-t"><a href="#" v-on:click=" $r( 'back' )"><small>{{ 'back' | i18n }}</small></a></p>
+        </div>
+        <div class="{{success}}">
+          <h3 class="font-bold">{{ 'forgot_password_success_title' | i18n }}</h3>
+          <div>
+            {{ 'forgot_password_success_desc' | i18n }}<br><br>
+            {{ 'go_to_main_page' | i18n }} <br><a href="/" class="btn btn-primary m-t">{{ 'app_name' | i18n }}</a>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="reset_password">
+      <div class="text-center">
+        <h1 class="logo-name">{{ 'app_name' | i18n }}</h1>
+      </div>
+      <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div class="{{form}}">
+          <h3>{{ 'password_reset_title' | i18n }}</h3>
+          <p>{{ 'password_reset_subtitle' | i18n }}</p>
+          <usermessages></usermessages>
+          <form class="m-t" role="form">
+            <div class="form-group">
+              <input type="email" v-model="email" class="form-control" placeholder="{{ 'email' | i18n }}" required="">
+            </div>
+            <div class="form-group">
+              <input type="password" v-model="password" class="form-control" placeholder="{{ 'password' | i18n }}" required="">
+            </div>
+            <div class="form-group">
+              <input type="password" v-model="password_confirm" class="form-control" placeholder="{{ 'password_confirm' | i18n }}" required="">
+            </div>
+            <a href="#" v-on:click=" $r( 'submit' )" class="btn btn-primary block full-width m-b">{{ submit_label | i18n }}</a>
+          </form>
+          <p class="m-t"><a href="#" v-on:click=" $r( 'back' )"><small>{{ 'back' | i18n }}</small></a></p>
+        </div>
+        <div class="{{success}}">
+          <h3 class="font-bold">{{ 'password_reset_success_title' | i18n }}</h3>
+          <div>
+            {{ 'password_reset_success_desc' | i18n }}<br><br>
+            {{ 'go_to_main_page' | i18n }} <br><a href="/" class="btn btn-primary m-t">{{ 'app_name' | i18n }}</a>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="connecting">
+      <div class="text-center">
+        <div class="middle-box text-center loginscreen animated fadeInDown">
+          <div>
+            <h3>{{ 'connecting' | i18n }}</h3>    
+          </div>
+        </div>
+      </div>
+    </script>
+
+
+    <script type="text/templates" id="usermessages">
+      <div class="alert alert-{{severity}} {{visible}} text-center">
+        <p v-for="msg in messages">{{{ msg.key | i18n msg.args }}}</p>
+      </div>    
+    </script>
+
+
+    <script type="text/templates" id="error">
+      <div class="text-center">
+        <h1 class="logo-name">{{ 'app_name' | i18n }}</h1>
+        <div class="middle-box text-center loginscreen animated fadeInDown">
+          <div>
+            <h3 class="font-bold">{{ 'error_title' | i18n }}</h3>
+            <div class="error-desc">
+              {{ 'error_subtitle' | i18n }}<br><br>
+              {{{ status | i18n reason }}}<br><br>
+              {{ 'go_to_main_page' | i18n }} <br><a href="/" class="btn btn-primary m-t">{{ 'app_name' | i18n }}</a>
+            </div>
+          </div>
+        </div>
+      </div>   
+    </script>
+
+
+    <script type="text/template" id="sidebar-status">
+      <h1 class="navbar-minimalize minimalize-styl-2" style="font-size: 2.3em; letter-spacing: 3px; color: rgb(204, 204, 204); font-weight: bold; padding-bottom: 0px !important; padding-left: 2px !important; margin-top: 10px !important;">SMARTPLAN</h1></a>
+      <!-- <a style="color: #999c9e;" v-on:click="$r( 'toggle' )" class="navbar-minimalize minimalize-styl-2" title="{{ title | i18n }}">
+        <i class="fa fa-lg {{icon}}"></i> <strong>{{ title | i18n }}</strong>
+      </a> -->
+    </script>
+
+
+    <script type="text/template" id="main">
+      <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" id="sidebar" role="navigation">
+        <div class="sidebar-collapse">
+          <ul class="nav metismenu" id="side-menu">
+            <sidebar></sidebar>
+
+          </ul>
+
+        </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+          <div class="row" id="topbar">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+            
+            <div class="navbar-header">
+              <sidebar-status></sidebar-status>
+            </div>
+            
+            <ul class="nav navbar-top-links navbar-right">
+              <notifications-nav-item></notifications-nav-item>
+              <sign-out></sign-out>
+            </ul>
+
+            </nav>
+          </div>
+          <component :is="content" keep-alive></component>
+
+          <div class="footer">
+            <div class="pull-right">
+
+            </div>
+            <div>
+              <strong>Copyright</strong> Okogu &copy; 2014-2016
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="sign-out">
+      <li>
+        <a href="#" v-on:click="$r( 'sign_out' )">
+          <i class="fa fa-sign-out"></i>{{ 'sign_out' | i18n }} 
+        </a>
+      </li>
+    </script>
+
+    <script type="text/template" id="notifications-nav-item">
+      <li>
+        <a href="#"  v-on:click="$r( 'notifications' )">
+          <i class="fa fa-bell"></i>{{ 'notifications' | i18n }}
+          <span v-if="unread" class="label label-info">{{ unread }}</span>
+        </a>
+      </li>
+    </script>
+
+    <script type="text/template" id="notification-list-item">
+      <tr>
+        <td class="middle text-center col-md-1 text-{{style}}">
+          <i class="fa fa-{{icon}} fa-2x"></i>
+        </td>
+        <td class="project-title">
+          <span class="text-{{style}}">{{{ summary }}}</span><br>
+          <small class="text-{{style}}"><i class="fa fa-plus-square"></i> {{ notification.created | epoch_to_date_time }}</small>
+        </td>
+        <td class="project-actions">
+          <a v-if="is_read" title="{{ 'mark_unread' | i18n }}" href="#" class="btn btn-white btn-circle btn-sm" v-on:click=" $r( 'unread')"><i class="fa fa-eye-slash"></i></a>
+          <a v-if="is_unread" title="{{ 'mark_read' | i18n }}" href="#" class="btn btn-white btn-circle btn-sm" v-on:click=" $r( 'read')"><i class="fa fa-eye"></i></a>
+        </td>
+      </tr>
+    </script>
+
+    <script type="text/template" id="account">
+      <li class="nav-header">
+      <div class="dropdown profile-element text-center">
+        <user-avatar :id="user.id" :user="user" size="48"></user-avatar>
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#" v-on:click="$r('show_profile')">
+          <span class="clear"></span> <span class="block m-t-xs"></span><strong class="font-bold">{{user.first}} {{user.last}}</strong>
+        </a>
+      </div>
+      </li>
+    </script>
+
+    <script type="text/template" id="profile">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+              <div class="ibox-content">
+                <div class="row">
+                  <div class="col-lg-10">
+                    <h2> <user-avatar :id="profile.id"></user-avatar> <span style="margin-left: 5px;">{{profile.first}} {{profile.last}}</span> </h2>
+                  </div>
+                  <div class="col-lg-2 profile-controls">
+                    <div class="text-right">
+                      <a v-on:click="$r( 'print' )" title="{{ 'print' | i18n }}" 
+                        class="btn btn-circle btn-white" v-bind:class="{ 'hidden': !is_shifts }">
+                        <i class="fa fa-print"></i>
+                      </a>
+
+                      <a v-on:click="$r( 'shifts' )" title="{{ 'shifts' | i18n }}" 
+                        class="btn btn-circle" v-bind:class="{ 'btn-info': is_shifts, 'btn-white': !is_shifts}"><i class="fa fa-calendar"></i></a>
+                      <a v-on:click="$r( 'availability' )" title="{{ 'availability' | i18n }}" 
+                        class="btn btn-circle" v-bind:class="{ 'btn-info': is_availability, 'btn-white': !is_availability}"><i class="fa fa-thumbs-up"></i></a>
+                      <a v-on:click="$r( 'stats' )" title="{{ 'stats' | i18n }}" 
+                        class="btn btn-circle" v-bind:class="{ 'btn-info': is_stats, 'btn-white': !is_stats}"><i class="fa fa-bar-chart-o"></i></a>
+                      <a v-on:click="$r( 'info' )" title="{{ 'info' | i18n }}" 
+                        class="btn btn-circle" v-bind:class="{ 'btn-info': is_info, 'btn-white': !is_info}"><i class="fa fa-picture-o"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="hr-line-dashed" style="margin-top: 5px !important;"></div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="tabs-container">
+                      <div class="tab-content">
+                        <div class="tab-pane" v-bind:class="{active: is_info}">
+                          <div>
+                            <profile-info></profile-info>        
+                          </div>
+                        </div>
+                        <div class="tab-pane" v-bind:class="{active: is_availability}">
+                          <div>
+                            <profile-availability></profile-availability>        
+                          </div>
+                        </div>
+                        <div class="tab-pane" v-bind:class="{active: is_stats}">
+                          <div>
+                            <profile-weekly-stats></profile-weekly-stats>        
+                          </div>
+                        </div>
+                        <div class="tab-pane" v-bind:class="{active: is_shifts}">
+                          <div>
+                            <profile-shifts></profile-shifts>        
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 height-50">
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="user-avatar">
+      <a v-on:click="$r( 'show_profile' )" v-if="is_ready" title="{{displayText}}" class="transparent">
+        <img class="img-circle height-{{size || 38}}" v-bind:src="photo_data"></img>
+        <!-- <img class="img-circle height-{{size || 38}}" v-bind:src="photo_url"></img> -->  
+      </a>
+    </script>
+
+    <script type="text/template" id="profile-photo">
+      <label for="file">
+        <img v-bind:src="photo_data" class="pointer img-circle m-b-md noborder square128">
+      </label>
+      <input v-if="!readonly" id="file" type="file" class="hidden"></input>
+      <p v-if="is_uploading">{{ 'uploading' | i18n }}</p>
+    </script>
+
+    <script type="text/template" id="profile-info">
+      <usermessages></usermessages>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row m-b-sm m-t-sm">
+              <label class="col-sm-3 control-label">{{ 'first_name' | i18n }}</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" v-if="!readonly" v-model="profile.first"></input> 
+                <span v-if="readonly"">{{profile.first}}</span>
+              </div>
+            </div>
+            <div class="row m-b-sm m-t-sm">
+              <label class="col-sm-3 control-label">{{ 'last_name' | i18n }}</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" v-if="!readonly" v-model="profile.last"></input> 
+                <span v-if="readonly"">{{profile.last}}</span>
+              </div>
+            </div>
+            <div class="row m-b-sm m-t-sm">
+              <label class="col-sm-3 control-label"></label>
+              <div class="col-sm-9">
+                <a href="#" v-if="!readonly" class="btn btn-primary btn-sm" v-on:click="$r( 'name' )" >{{ change_name | i18n }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row margin-top-20">
+          <label class="col-sm-3 control-label">{{ 'issue_email_notifications' | i18n }}</label>
+          <div class="col-sm-9">
+            <div class="switch">
+              <div class="onoffswitch">
+                <input type="checkbox" v-on:click="$r( 'toggle_issue_emails' )" class="onoffswitch-checkbox" id="issue-email-check">
+                <label class="onoffswitch-label" for="issue-email-check">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 text-center">
+        <div class="form-group">
+          <div class="col-sm-12">
+            <profile-photo></profile-photo>   
+          </div>
+        </div>
+      </div>
+    
+    </script>
+
+    <script type="text/template" id="profile-shifts">
+      <calendar view="week" nav="true" keep-alive></calendar>
+    </script>
+
+
+    <script type="text/template" id="home">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+              <div class="ibox-content">
+                  <calendar view="week" nav="true" keep-alive></calendar>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    
+    <script type="text/template" id="week-stats">
+      <div class="col-md-{{width}} text-center" style="padding: 0px;">
+        <canvas class="bar" height="{{ height }}"></canvas>
+        <!-- <span>{{ title }}</span> -->
+      </div>
+    </script>
+
+    <script type="text/template" id="profile-weekly-stats">
+      <div class="text-center margin-bottom-25">
+        <a v-on:click="$r( 'toggle' )" class="btn btn-white"><i class="fa {{icon}}"></i> {{ toggle | i18n }}</a><br/><br/>
+        <div style="display: inline-block; margin-left: 10px;" v-for="t in types">
+          {{{ t | shift-style-label }}}
+        </div>
+      </div>
+      <week-stats v-for="w in weeks" :height="250" :width="2" :stats="w"></week-stats>
+    </script>
+
+    <script type="text/template" id="availability-template-list-item">
+      <li v-on:click="$r( 'select' )" class="pointer" v-bind:class="{ info: is_selected }">{{ item.name }}</li>
+    </script>
+    
+
+    <script type="text/template" id="profile-availability-save-to-template">
+      <div class="text-center">
+        <usermessages></usermessages>
+        <input v-model="name" class="form-control text-center" type="text" placeholder="{{ 'template_name' | i18n }}"></input>
+        <button class="margin-top-5 full-width btn-sm btn btn-info" type="button" v-on:click="$r( 'submit' )">{{ submit | i18n }}</button>
+      </div>  
+    </script>
+
+    <script type="text/template" id="profile-availability-control">
+      <div class="margin-bottom-10 margin-top-10">
+        <usermessages></usermessages>
+        
+        <div class="text-center" v-bind:class="{ hidden: !is_disabled }">
+          <div>{{ 'no_availability_template' | i18n }}</div>
+          <a v-if="!readonly" v-on:click="$r( 'enable' )">{{ 'enable_availability' | i18n }}</a>
+        </div>
+
+        <div class="text-center" v-bind:class="{ hidden: (!is_enabled || readonly) }">
+          <div class="margin-bottom-10">{{ 'availability_enabled' | i18n }}</div>
+          <div class="margin-bottom-10">{{ 'choose_an_availability_template' | i18n }}</div> 
+          <template-select v-if="has_templates"></template-select>
+          <div class="text-muted" v-if="!has_templates">{{ 'no_data' | i18n}}</div>
+          <div class="margin-top-10">
+            <a v-on:click="$r( 'edit' )">{{ 'edit_availability' | i18n }}</a><br/>
+            <a v-on:click="$r( 'disable' )">{{ 'disable_availability' | i18n }}</a>
+          </div>
+        </div>
+
+        <div class="text-center" v-bind:class="{ hidden: !(is_enabled && readonly) }">
+          <div class="margin-bottom-5">{{ 'availability_enabled' | i18n }}</div>
+          <div v-if="has_template">
+            {{ 'selected_template' | i18n }} <strong> {{ selectedTemplate }}</strong>
+          </div>
+        </div>
+
+
+        <div class="text-center" v-bind:class="{ hidden: (!is_edit || is_dirty) }">
+          <div class="margin-bottom-5">{{ 'availability_enabled' | i18n }}</div>
+          <div class="margin-bottom-5" v-if="has_template">
+            {{ 'selected_template' | i18n }} <strong> {{ selectedTemplate }}</strong>
+          </div>  
+          <p>{{ 'availability_in_edit_mode' | i18n }}</p>
+          <div class="margin-top-10" v-if="!readonly">
+            <a v-on:click="$r( 'cancel' )">{{ 'cancel' | i18n }}</a>
+          </div>
+        </div>
+        
+        <div class="text-center" v-bind:class="{ hidden: !is_dirty }">
+          <div class="margin-bottom-5">{{ 'availability_enabled' | i18n }}</div>
+          <div class="margin-bottom-5" v-if="has_template">
+            {{ 'selected_template' | i18n }} <strong>{{ selectedTemplate }}</strong>
+          </div>  
+          <p>{{ 'availability_in_dirty_mode' | i18n }}</p>
+          <div v-if="!readonly">
+            <profile-availability-save-to-template :availability="availability"></profile-availability-save-to-template>
+            <div class="margin-top-10 alert alert-warning">
+              <a v-on:click="$r( 'cancel' )">{{ 'discard_availability_changes' | i18n }}</a><br>
+              {{ 'lost_changes' | i18n }}
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" v-bind:class="{ hidden: (is_edit || is_enabled || is_disabled) }">
+          <loading></loading>
+        </div>
+        
+      </div>
+    </script>
+
+    <script type="text/template" id="profile-availability-organization">
+      <div class="text-center pointer margin-top-10" v-on:click="$r( 'select' )" v-bind:class="{ 'text-muted' : is_unselected, 'text-strong': is_selected }">
+        <i class="fa fa-sitemap"></i> {{ organization.name }}
+      </div>
+
+      <div v-bind:class="{ hidden: !is_selected }">
+        <profile-availability-control :organization="organization" :year="year" :week="week" :access="access"></profile-availability-control>
+      </div>
+    </script>
+
+    <script type="text/template" id="profile-availability">
+      <div class="row">
+        <div class="col-lg-9">
+          <calendar view="week" nav="true" week="disabled" month="disabled" day="disabled" keep-alive></calendar>
+        </div>
+        <div class="col-lg-3">
+          <div class="text-center margin-bottom-25" v-if="!readonly">
+            <button class="btn btn-sm btn-info" v-bind:class="{ 'hidden': is_edit }" v-on:click="$r( 'templates' )" 
+              type="button" title="{{ 'template_chooser' | i18n }}"><i class="fa fa-suitcase"></i></button>
+            <div class="btn-group" v-bind:class="{ hidden: !is_edit}" >
+              <button class="btn btn-sm" v-bind:class="{ 'btn-info': is_templates, 'btn-white': !is_templates }" 
+                v-on:click="$r( 'templates' )" type="button" title="{{ 'template_chooser' | i18n }}"><i class="fa fa-suitcase"></i></button>
+              <button class="btn btn-sm"  v-bind:class="{ 'btn-info': is_inspector, 'btn-white': !is_inspector }" 
+                v-on:click="$r( 'inspector' )" type="button" title="{{ 'shift_inspector' | i18n }}"><i class="fa fa-pencil"></i></button>
+              <button class="btn btn-sm"  v-bind:class="{ 'btn-info': is_keys, 'btn-white': !is_keys }" 
+                v-on:click="$r( 'keys' )" type="button" title="{{ 'key_shortcuts' | i18n }}"><i class="fa fa-keyboard-o"></i></button>
+            </div>
+          </div>
+          <div v-bind:class="{ hidden: (is_templates || is_inspector || is_keys)}">
+            <loading></loading>
+          </div>
+          <div class="panel-group" id="accordion" v-bind:class="{ hidden: !is_templates }">
+            <profile-availability-organization v-for="o in organizations" :access="access" :organization="o" :year="year" :week="week"></profile-availability-organization> 
+          </div> 
+          <div v-bind:class="{ hidden: !is_inspector }">
+            <shift-inspector mode="availability" keep-alive></shift-inspector>
+          </div>
+          <div v-bind:class="{ hidden: !is_keys }">
+            <key-shortcuts keep-alive></key-shortcuts>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="sidebar">
+      <li v-bind:class="{ active : is_profile}">
+        <a href="#" v-on:click="$r('profile')" title="{{ 'my_profile' | i18n }}" style="padding-left: 17px !important; padding-right: 17px !important;">
+          <img v-bind:src="photo" class="img-circle height-38">
+          <span class="nav-label">{{ 'my_profile' | i18n }}</span> 
+        </a>
+      </li>
+      
+      <li v-bind:class="{ active : is_organizations }" v-if="has_organizations">
+        <a href="#" v-on:click="$r('organizations')" title="{{ 'organizations' | i18n }}">
+          <i class="fa fa-sitemap fa-lg"></i> 
+          <span class="nav-label">{{ 'organizations' | i18n }}</span> 
+        </a>
+      </li>
+      <li v-bind:class="{ active : is_templates }" v-if="has_templates">
+        <a href="#" v-on:click="$r( 'templates')" title="{{ 'templates' | i18n }}">
+          <i class="fa fa-briefcase fa-lg"></i> 
+          <span class="nav-label">{{ 'templates' | i18n }}</span>
+        </a>
+      </li>
+      <li v-bind:class="{ active : is_schedules }" v-if="has_schedules">
+        <a href="#" v-on:click="$r('schedules')" title="{{ 'schedules' | i18n }}">
+          <i class="fa fa-calendar fa-lg"></i> 
+          <span class="nav-label">{{ 'schedules' | i18n }}</span>
+        </a>
+      </li>
+
+      <li v-bind:class="{ active : is_issues }" v-if="has_issues">
+        <a href="#" v-on:click="$r('issues')" title="{{ 'issues' | i18n }}">
+          <i class="fa fa-bug fa-lg"></i> 
+          <span class="nav-label">{{ 'issues' | i18n }}</span>
+        </a>
+      </li>
+      
+      <li v-bind:class="{ active : is_dashboard }" v-if="has_dashboard">
+        <a href="#" v-on:click="$r('dashboard')" title="{{ 'dashboard' | i18n }}">
+          <i class="fa fa-dashboard fa-lg"></i> 
+          <span class="nav-label">{{ 'dashboard' | i18n }}</span>
+        </a>
+      </li>
+        
+    </script>
+
+    <script type="text/template" id="tags">
+      <div>
+      <ul class="tags">
+        <li v-for="tag in tags">
+        <span class="label label-info">
+          <i class="fa fa-tag"></i> {{tag}} <a v-bind:class="{ 'hidden': readonly }" v-on:click="$r( 'remove', tag )"><i class="fa fa-times"></i></a>
+        </span>    
+        </li>
+      </ul> 
+
+      <div v-bind:class="{ 'hidden': readonly }">
+        <input class="form-control tags-input"  autocomplete="off" 
+        type="text" placeholder="{{ 'add_tag' | i18n}}" v-model="newTag" v-on:keyup.enter="$r( 'add' )"></input>
+      </div>
+    </div>
+    </script>
+
+    <script type="text/template" id="organization-chooser">
+      <select class="select">
+        <option v-for="o in organizations" value="{{o.id}}">{{o.name}}</option>
+      </select>
+    </script>
+
+    <script type="text/template" id="user-chooser">
+      <div>
+        <input v-if="!readonly" type="text" id="user-select" class="form-control full-width typeahead" autocomplete="off"></input>
+        <div v-if="readonly"> 
+          <!-- <span class="margin-left-5"> {{{ selectionHtml }}}</span> -->
+          <user-avatar :id="selected"></user-avatar>
+          {{{ selectionHtml }}}
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="organizations">
+      <component :is="content" keep-alive></component>
+    </script>
+
+    <script type="text/template" id="organizations-list">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+              <div class="ibox-content">
+                <div class="project-list">
+                  <div class="pull-right">
+                    <a class="btn btn-white btn-circle margin-bottom-10" v-on:click="$r( 'create' )" title="{{ 'add_organization' | i18n}}">
+                      <i class="fa fa-plus"></i>
+                    </a>
+                  </div>
+                  <table class="table table-hover">
+                    <tbody>
+                      <tr is="organizations-list-item" v-for="o in organizations" :org="o" :user="user"></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="organization-create">
+      <div class="row wrapper page-heading white-bg">
+        <div class="col-sm-12">
+          <h2>{{ 'organization_create' | i18n }}</h2>
+          <ol class="breadcrumb">
+            <li>
+            <a href="#" v-on:click=" $r( 'home' )">{{ 'home' | i18n }}</a>
+            </li>
+            <li class="active">
+            <strong>{{ 'organization_create' | i18n }}</strong>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="wrapper wrapper-content animated fadeInRight margin-bottom-50">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="wrapper wrapper-content animated fadeInUp">
+              <div class="ibox">
+                <div class="ibox-content">
+                  <usermessages></usermessages>
+                  <div class="row m-b-sm m-t-sm">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">{{ 'name' | i18n }}</label>
+                      <div class="col-sm-10">
+                        <textarea class="form-control" v-model="name" placeholder="{{ 'organization_create' | i18n }}"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hr-line-dashed"></div>
+                  <div class="row m-b-sm m-t-sm">
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <button type="button" class="btn btn-white" v-on:click="$r( 'cancel' )">{{ 'back' | i18n }}</button>
+                        <button type="button" class="btn btn-primary" v-on:click="$r( 'submit' )">{{ submit | i18n }}</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="organizations-list-item">
+      <tr>
+        <td class="middle text-center col-md-1">
+          <user-avatar :id="org.ownedby" :user="user"></user-avatar>
+        </td>
+        <td class="project-title">
+          <a href="#" v-on:click=" $r( 'select')">{{org.name}}</a>
+          <!-- <br>
+          <small><i class="fa fa-plus-square"></i> {{ org.created | epoch_to_date }}</small> -->
+        </td>
+        <td class="project-actions">
+        </td>
+      </tr>
+    </script>
+
+    <script type="text/template" id="organization">
+      <div class="row wrapper page-heading white-bg">
+        <div class="col-sm-12">
+          <h2>{{organization.name}}</h2>
+          <ol class="breadcrumb">
+            <li>
+            <a href="#" v-on:click=" $r( 'home' )">{{ 'home' | i18n }}</a>
+            </li>
+            <li class="active">
+            <strong>{{ 'organization_detail' | i18n }}</strong>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="wrapper wrapper-content animated fadeInRight margin-bottom-50">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="tabs-container">
+              <ul class="nav nav-tabs">
+                <li v-bind:class="{ active: is_members }">
+                <a v-on:click="$r('members')">{{ 'members' | i18n }}</a>
+                </li>
+                <li v-bind:class="{ active: is_tags }">
+                <a v-on:click="$r('tags')">{{ 'tags' | i18n }}</a>
+                </li>
+                <li v-bind:class="{ active: is_profiles }">
+                <a v-on:click="$r('profiles')">{{ 'profiles' | i18n }}</a>
+                </li>
+                <li v-bind:class="{ active: is_info }">
+                <a v-on:click="$r('info')">{{ 'info' | i18n }}</a>
+                </li>
+              </ul>
+
+              <div class="tab-content">
+                <div class="tab-pane" v-bind:class="{active: is_info}">
+                  <div class="panel-body">
+                    <organization-info keep-alive></organization-info>
+                  </div>
+                </div>
+                <div class="tab-pane" v-bind:class="{active: is_members}">
+                  <div class="panel-body">
+                    <organization-members :organization="organization" keep-alive></organization-members>
+                  </div>
+                </div>
+                <div class="tab-pane" v-bind:class="{active: is_tags}">
+                  <div class="panel-body">
+                    <organization-tags :organization="organization" keep-alive></organization-tags>
+                  </div>
+                </div>
+                <div class="tab-pane" v-bind:class="{active: is_profiles}">
+                  <div class="panel-body">
+                    <organization-profiles :organization="organization" keep-alive></organization-profiles>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 height-50">
+        </div>
+      </div>
+
+    </script>
+
+
+    <script type="text/template" id="organization-info">
+      <usermessages></usermessages>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'name' | i18n }}</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" v-if="!readonly" v-model="organization.name">{{organization.name}}</textarea> <span v-if="readonly"">{{organization.name}}</span><br/>
+            <a href="#" v-if="!readonly" class="btn btn-primary btn-sm" v-on:click="$r( 'change_name' )" >{{ change_name | i18n }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'owner' | i18n }}</label>
+          <div class="col-sm-10">
+            <user-chooser :users="members" :selected="organization.ownedby" :readonly="readonly" keep-alive></user-chooser><br/>
+            <a href="#" v-if="!readonly" class="btn btn-primary btn-sm" v-on:click="$r( 'change_owner' )" >{{ assign | i18n }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'created' | i18n }}</label>
+          <span class="col-sm-10">{{ organization.created | epoch_to_date }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'created_by' | i18n }}</label>
+          <span class="col-sm-10">{{ creator.first }} {{ creator.last }}</span>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="organization-member-edit">
+      <usermessages></usermessages>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'member' | i18n }}</label>
+          <div class="col-sm-10">
+            {{{ member | userHtml }}}
+          </div>
+        </div>
+      </div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'profile' | i18n }}</label>
+          <div class="col-sm-10">
+            <div v-if="!readonly">
+              <profile-select :organization="organization"></profile-select>
+              <br/> 
+              <button class="btn btn-primary margin-top-5" v-on:click="$r( 'set_profile' )"> {{ set_profile | i18n }}</button>
+            </div>  
+            <span v-if="readonly">{{ profileName }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'tags' | i18n }}</label>
+          <div class="col-sm-10">
+            <tags :tags="tags" :readonly="readonly"></tags>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <div class="col-sm-12">
+            <a class="btn btn-white" v-on:click="$r( 'cancel' )">{{ 'cancel' | i18n }}</a>
+            <a href="#" v-if="!readonly && !owner" class="btn btn-danger btn-sm" v-on:click="$r( 'remove' )" >{{ 'remove_member' | i18n }}</a>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="organization-member-create">
+      <usermessages></usermessages>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'email' | i18n }}</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" v-model="email" placeholder="{{ 'email' | i18n }}"></textarea><br/>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <div class="col-sm-12">
+            <button type="button" class="btn btn-white" v-on:click="$r( 'cancel' )">{{ 'back' | i18n }}</button>
+            <button type="button" class="btn btn-primary" v-on:click="$r( 'submit' )">{{ submit | i18n }}</button>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="organization-members-list">
+      <div class="project-list">
+        <a v-if="!readonly" class="btn btn-white btn-circle pull-right margin-bottom-10" title="{{'add_member' | i18n }}" v-on:click="$r( 'create' )">
+          <i class="fa fa-plus"></i>
+        </a>
+        <table class="table table-hover">
+          <tbody>
+            <tr is="organization-member-list-item" v-for="m in members" :member="m" :organization="organization" :owner="owner"> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </script>
+
+    <script type="text/template" id="organization-member-list-item">
+      <tr>
+        <td class="middle text-center col-md-1">
+          <user-avatar :id="member.id" :user="user"></user-avatar>
+        </td>
+        <td class="project-title col-md-9">
+          <a v-on:click="$r( 'select' )">
+            {{member.first}} {{member.last}}
+          </a>
+          <br>
+          <span class="text-muted"><i class="fa fa-envelope"> </i> {{member.email}}</span>
+          <span v-if="is_owner" class="text-muted"><i class="fa fa-graduation-cap"></i> {{ 'owner' | i18n }}</span>
+        </td>
+        <td class="project-actions col-md-2">
+          {{{ member.profile | profile-badge }}}
+        </td>
+      </tr>   
+    </script>
+
+    <script type="text/template" id="organization-members">
+      <component :is="content" :organization="organization" keep-alive></component>
+    </script>
+
+    <script type="text/template" id="organization-tags">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">{{ 'tags' | i18n }}</label>
+        <div class="col-sm-10">
+          <tags :tags="tags" :readonly="readonly"></tags> 
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="organization-profile-list-item">
+      <tr>
+        <td class="middle text-center col-md-1">
+          <i class="fa fa-2x fa-sliders"></i>
+        </td>
+        <td class="project-title">
+          <a href="#" v-on:click=" $r( 'select')">{{profile.name}}</a>
+        </td>
+        <td class="project-actions">
+          <a href="#" class="btn btn-white btn-circle btn-sm" v-on:click=" $r( 'select' )"><i class="fa fa-chevron-right"></i></a>
+        </td>
+      </tr>
+    </script>
+
+    <script type="text/template" id="organization-profiles-list">
+      <div class="project-list">
+        <a v-if="!readonly" class="btn btn-white margin-bottom-10" v-on:click="$r( 'create' )"><i class="fa fa-plus"></i> {{'add_profile' | i18n }}</a>
+        <table class="table table-hover">
+          <tbody>
+            <tr is="organization-profile-list-item" v-for="p in profiles" :profile="p" :organization="organization"></tr>
+          </tbody>
+        </table>
+      </div>  
+    </script>
+
+    <script type="text/template" id="organization-profile-create">
+      <usermessages></usermessages>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'name' | i18n }}</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" v-model="name" placeholder="{{ 'profile_create' | i18n }}"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <div class="col-sm-12">
+            <button type="button" class="btn btn-white" v-on:click="$r( 'cancel' )">{{ 'back' | i18n }}</button>
+            <button type="button" class="btn btn-primary" v-on:click="$r( 'submit' )">{{ submit | i18n }}</button>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="organization-rule-list-item">
+      <tr>
+        <td class="middle text-center col-md-1">
+          {{{ status | rule-status-badge }}}            
+        </td>
+        <td class="middle project-title">
+          <a href="#" v-on:click=" $r( 'select')">{{indicator.name | i18n }}</a>
+        </td>
+        <td class="text-right middle">
+          <div v-if="!( is_updating || is_creating )" class="form-inline">
+            <div v-if="!readonly && (is_enabled || is_updating)" class="form-group">
+              <input v-model="rule.value" type="email" placeholder="{{indicator.value}}" class="form-control width75 text-right">
+            </div>
+            <span v-if="readonly">{{rule.value}}</span>
+            <button v-if="!readonly && (is_enabled || is_updating)" class="btn btn-primary btn-outline" type="submit" v-on:click="$r( 'value' )">{{ 'update' | i18n }}</button>
+            <button v-if="!readonly && (is_enabled || is_updating)" class="btn btn-primary btn-outline btn-circle margin-left-10" title="{{ enforcement | i18n }}" 
+              type="submit" v-on:click="$r( 'enforcement' )"><i class="fa {{enforcementIcon}}"></i></button>
+            <button v-if="!readonly" class="btn btn-primary btn-circle" v-bind:class="{ 'btn-outline': !(is_disabled || is_init)}" title="{{ toggle_status | i18n }}" type="submit" v-on:click="$r( 'toggle' )"><i class="fa fa-power-off"></i></button>
+          </div>
+          <spinner v-if="is_updating || is_creating"></spinner>
+        </td>
+      </tr>
+    </script>
+
+    <script type="text/template" id="organization-profile-edit">
+      <usermessages></usermessages>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'profile' | i18n }}</label>
+          <div class="col-sm-6">
+            <div v-if="!readonly">
+              <input type="text" class="form-control" v-model="profile.name" placeholder="{{ 'profile_name'|i18n }}"></input> 
+              <button class="btn btn-primary margin-top-5" v-on:click="$r( 'change_name' )" >{{ rename | i18n }}</button>
+            </div>
+            <span v-if="readonly">{{profile.name}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="row m-b-sm m-t-sm margin-top-20">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'owner' | i18n }}</label>
+          <div class="col-sm-6">
+            <user-chooser :users="members" :selected="profile.ownedby" :readonly="readonly" keep-alive></user-chooser>
+            <button v-if="!readonly" class="btn btn-primary margin-top-5" v-on:click="$r( 'change_owner' )" >{{ assign | i18n }}</button>
+          </div>
+        </div>
+      </div>
+      <div class="row m-b-sm m-t-sm margin-top-20">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'rules' | i18n }}</label>
+          <div class="col-sm-10">
+            
+            <div>
+              <h4>{{ 'daily_rules' | i18n }}</h4>
+              <loading v-if="is_fetching_indicators || is_fetching_rules"></loading>
+              <table v-if="is_ready" class="table table-hover">
+                <tbody>
+                  <tr is="organization-rule-list-item" v-for="i in dIndicators" :profile="profile" :organization="organization" :indicator="i"></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div>
+              <h4>{{ 'weekly_rules' | i18n }}</h4>
+              <loading v-if="is_fetching_indicators || is_fetching_rules"></loading>
+              <table v-if="is_ready" class="table table-hover">
+                <tbody>
+                  <tr is="organization-rule-list-item" v-for="i in wIndicators" :profile="profile" :organization="organization" :indicator="i"></tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <div class="col-sm-12">
+            <button type="button" class="btn btn-white" v-on:click="$r( 'cancel' )">{{ 'back' | i18n }}</button>
+          </div>
+        </div>
+      </div>
+    </script>
+
+
+    <script type="text/template" id="organization-profiles">
+      <component :is="content" :organization="organization" keep-alive></component>
+    </script>
+
+
+
+
+    <script type="text/template" id="template-edit">
+      <div class="row wrapper page-heading white-bg">
+        <div class="col-sm-12">
+          <h2>{{template.name}}</h2>
+          <ol class="breadcrumb">
+            <li>
+              <a href="#" v-on:click=" $r( 'home' )">{{ 'home' | i18n }}</a>
+            </li>
+            <li>
+              <a href="#">{{ organization.name }}</a>
+              </li>
+            <li>
+              <strong>{{ detail_title | i18n }}</strong>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="wrapper wrapper-content animated fadeInRight margin-bottom-50">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="tabs-container">
+              <ul class="nav nav-tabs">
+                <li v-bind:class="{ active: is_shifts }">
+                  <a v-on:click="$r('shifts')">{{ 'shifts' | i18n }}</a>
+                </li>
+                <li v-bind:class="{ active: is_info }">
+                  <a v-on:click="$r('info')">{{ 'info' | i18n }}</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane" v-bind:class="{active: is_shifts}">
+                  <div class="panel-body">
+                    <template-shifts keep-alive></template-shifts>
+                  </div>
+                </div>
+                <div class="tab-pane" v-bind:class="{active: is_info}">
+                  <div class="panel-body">
+                    <template-info  keep-alive></template-info>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 height-50">
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="shift-type-chooser">
+      <select class="full-width">
+        <option v-for="t in types" value="{{t}}" 
+        data-content="{{ t | shift-style-label }}">{{ t | i18n }}</option>
+      </select>
+    </script>
+
+    <script type="text/template" id="shift-inspector">
+      <div v-bind:class="{ hidden: hasShift}" class="text-center text-muted" style="margin-top: 100px;">
+        {{ 'no_shift_selected' | i18n }}
+      </div>
+
+      <div v-bind:class="{ hidden: !(hasShift && readonly)}">
+        <div class="row m-b-sm m-t-sm" v-bind:class="{ hidden: is_availability_template || is_availability }">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">{{ 'name' | i18n }}</label>
+            <div class="col-sm-8">
+              {{ shift.name }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm" v-if="is_schedule || is_availability">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">{{ 'date' | i18n }}</label>
+            <div class="col-sm-8">
+              {{ shift | shift-date }}
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">{{ 'weekday' | i18n }}</label>
+            <div class="col-sm-8">
+              {{ shift.start_day | weekday }}
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">{{ 'start' | i18n }}</label>
+            <div class="col-sm-8">{{ start_time }}</div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">{{ 'end' | i18n }}</label>
+            <div class="col-sm-8">{{ end_time }}</div>
+          </div>
+        </div>
+        <div v-bind:class="{ hidden: (is_template || is_availability) }">
+          <div class="row m-b-sm m-t-sm">
+            <div class="form-group">
+              <label class="col-sm-4 control-label">{{ 'assigned_to' | i18n }}</label>
+              <div class="col-sm-8">{{ shift | shift-assignee }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm" v-if="(is_template && is_schedule_template)">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">{{ 'staffing' | i18n }}</label>
+            <div class="col-sm-8">
+              {{ shift.staffing }}
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">{{ 'type' | i18n }}</label>
+            <div class="col-sm-8">
+              {{{ shift.type | shift-style-label }}}
+            </div>
+          </div>
+        </div>
+        <div v-bind:class="{ hidden: (is_new_shift || is_availability_template || is_availability) }">
+          <div class="row m-b-sm m-t-sm">
+            <div class="form-group">
+              <label class="col-sm-4 control-label">{{ 'tags' | i18n }}</label>
+              <div class="col-sm-8">
+                <tags :readonly="readonly" :tags="tags"></tags>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div v-bind:class="{ hidden: !(hasShift && !readonly) }">
+        <usermessages></usermessages>
+        <div class="row m-b-sm m-t-sm" v-bind:class="{ hidden: is_availability_template || is_availability }">
+          <div class="form-group">
+            <label class="col-sm-12 control-label">{{ 'name' | i18n }}</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" v-if="!readonly" v-model="shift.name" placeholder="{{ 'shift_name' | i18n }}">
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm" v-if="is_schedule || is_availability">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">{{ 'date' | i18n }}</label>
+            <div class="col-sm-8">
+              {{ shift | shift-date }}
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">{{ 'weekday' | i18n }}</label>
+            <div class="col-sm-8">
+              {{ shift.start_day | weekday }}
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">{{ 'start' | i18n }}</label>
+            <div class="col-sm-8">
+              <input id="start" type="text" class="form-control" v-bind:class="{ hidden: readonly }">
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm">
+          <div class="form-group">
+            <label class="col-sm-4 control-label">{{ 'end' | i18n }}</label>
+            <div class="col-sm-8">
+              <input id="end" type="text" class="form-control" v-bind:class="{ hidden: readonly }">
+            </div>
+          </div>
+        </div>
+        <div v-bind:class="{ hidden: (is_template||is_availability) }">
+          <div class="row m-b-sm m-t-sm">
+            <div class="form-group">
+              <label class="col-sm-12 control-label">{{ 'assigned_to' | i18n }}</label>
+              <div class="col-sm-12">
+                <user-chooser :readonly="readonly" :selected="shift.assignedto" keep-alive></user-chooser>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm" v-if="is_template && is_schedule_template">
+          <div class="form-group">
+            <label class="col-sm-12 control-label">{{ 'staffing' | i18n }}</label>
+            <div class="col-sm-12">
+              <input v-if="!readonly" type="text" v-model="shift.staffing" class="form-control"></input>
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm" v-if="!(is_availability_template || is_availability)">
+          <div class="form-group">
+            <label class="col-sm-12 control-label">{{ 'type' | i18n }}</label>
+            <div class="col-sm-12">
+              <shift-type-chooser v-if="!readonly"></shift-type-chooser>
+            </div>
+          </div>
+        </div>
+        <div v-bind:class="{ hidden: (is_new_shift || is_availability_template || is_availability)}">
+          <div class="row m-b-sm m-t-sm">
+            <div class="form-group">
+              <label class="col-sm-12 control-label">{{ 'tags' | i18n }}</label>
+              <div class="col-sm-12">
+                <tags :readonly="readonly" :tags="tags"></tags>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-b-sm m-t-sm">
+          <div class="form-group">
+            <div class="col-sm-12 text-center" >
+              <button type="button" class="full-width btn btn-info btn-sm" v-on:click="$r( 'submit' )">{{ submit | i18n }}</button>
+              <a v-if="!is_new_shift && !readonly" class="full-width margin-top-10" v-on:click="$r( 'remove' )">{{ 'delete' | i18n }}</a>
+            </div>
+          </div>
+        </div>
+
+    </div>
+    </script>
+    
+    <script type="text/template" id="template-calendar">
+      <calendar view="week" mode="template" keep-alive></calendar>
+    </script>
+
+  
+    <script type="text/template" id="template-controls">
+      <div class="col-sm-12" style="padding-right: 0px !important;">
+        <span class="pull-right">
+          <a href="#" class="btn btn-circle btn-white btn-sm" title="{{ 'toggle_inspector' | i18n }}" v-on:click="$r( 'inspector' )">
+            <i class="fa fa-info"></i>
+          </a>
+          <a href="#" class="btn btn-circle btn-white btn-sm" title="{{ 'toggle_keyboard_shortcuts' | i18n }}" v-on:click="$r( 'keyshortcuts' )">
+            <i class="fa fa-keyboard-o"></i>
+          </a>
+        </span>
+      </div>
+    </script>
+
+
+    <script type="text/template" id="key-shortcuts">
+      <div class="text-center" style="padding: 3px; padding-top: 10px; margin-bottom: 10px; border-radius: 3px; border: 1px solid #ddd;" v-for="k in keys">
+        <strong>
+            <span v-if="k.modifier" class="label label-default">{{k.modifier}}</span> 
+            <span class="label label-default"><i class="fa fa-{{k.key}}"></i>
+            </strong>
+          <p class="margin-top-5">{{ k.hint | i18n }}</p>
+      </div>
+    </script>
+
+    <script type="text/template" id="template-shifts">
+      <div class="row">
+        <div class="col-sm-12 text-center text-muted">
+          <p class="margin-bottom-15"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div v-bind:class="{ 'col-sm-12' : readonly, 'col-sm-9' : !readonly }">
+          <template-calendar keep-alive></template-calendar>
+        </div>
+        <div v-bind:class="{ 'hidden' : readonly, 'col-sm-3' : !readonly }">
+            <div class="text-center margin-bottom-25">
+              <div class="btn-group">
+                <button class="btn btn-sm" v-bind:class="{ 'btn-info': inspector, 'btn-white': !inspector }" 
+                  v-on:click="$r( 'inspector' )" type="button" title="{{ 'shift_inspector' | i18n }}"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-sm"  v-bind:class="{ 'btn-info': keys, 'btn-white': !keys }" 
+                  v-on:click="$r( 'keys' )" type="button" title="{{ 'key_shortcuts' | i18n }}"><i class="fa fa-keyboard-o"></i></button>
+              </div>
+            </div>
+            <div v-bind:class="{ hidden: !keys }" class="margin-top-10">
+              <key-shortcuts keepalive></key-shortcuts>  
+            </div> 
+            <div v-bind:class="{ hidden: !inspector }" class="margin-top-10">
+              <shift-inspector mode="template" keep-alive></shift-inspector>
+            </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="template-info">
+      <usermessages></usermessages>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'name' | i18n }}</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" v-if="!readonly" v-model="template.name">{{template.name}}</textarea> 
+            <span v-if="readonly">{{template.name}}</span><br/>
+            <a href="#" v-if="!readonly" class="btn btn-primary btn-sm" v-on:click="$r( 'change_name' )" >{{ change_name | i18n }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'owner' | i18n }}</label>
+          <div class="col-sm-10">
+            <user-chooser :selected="template.ownedby" :readonly="readonly" keep-alive></user-chooser><br/>
+            <a href="#" v-if="!readonly" class="btn btn-primary btn-sm" v-on:click="$r( 'change_owner' )" >{{ change_owner | i18n }}</a>
+          </div>
+        </div>
+      </div>
+      <div v-if="is_schedules">
+        <div class="hr-line-dashed"></div>
+        <div class="row m-b-sm m-t-sm">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">{{ 'tags' | i18n }}</label>
+            <div class="col-sm-10">
+              <tags :tags="tags" :readonly="readonly"></tags>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'created' | i18n }}</label>
+          <span class="col-sm-10">{{ organization.created | epoch_to_date }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'created_by' | i18n }}</label>
+          <span class="col-sm-10">{{ creator.first }} {{ creator.last }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'organization' | i18n }}</label>
+          <div class="col-sm-10">
+            {{organization.name}}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'category' | i18n }}</label>
+          <div class="col-sm-10">
+            {{ category | i18n}}
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="template-create">
+      <div class="row wrapper page-heading white-bg">
+        <div class="col-sm-12">
+          <h2>{{ title | i18n }}</h2>
+          <ol class="breadcrumb">
+            <li>
+            <a href="#" v-on:click=" $r( 'home' )">{{ 'home' | i18n }}</a>
+            </li>
+            <li class="active">
+            <strong>{{ title | i18n }}</strong>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="wrapper wrapper-content animated fadeInRight margin-bottom-50">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="wrapper wrapper-content animated fadeInUp">
+              <div class="ibox">
+                <div class="ibox-content">
+                  <usermessages></usermessages>
+                  <div class="row m-b-sm m-t-sm">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">{{ 'organization' | i18n }}</label>
+                      <div class="col-sm-10">
+                        <organization-chooser></organization-chooser>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row m-b-sm m-t-sm">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">{{ 'name' | i18n }}</label>
+                      <div class="col-sm-10">
+                        <textarea class="form-control" v-model="name" placeholder="{{ 'template_name' | i18n }}"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hr-line-dashed"></div>
+                  <div class="row m-b-sm m-t-sm">
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <a class="btn btn-white" v-on:click="$r( 'cancel' )">{{ 'back' | i18n }}</a> 
+                        <a class="btn btn-primary" v-on:click="$r( 'submit' )">{{ submit | i18n }}</a> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    
+    <script type="text/template" id="template-duplicate">
+      <div class="row wrapper page-heading white-bg">
+        <div class="col-sm-12">
+          <h2>{{template.name}}</h2>
+          <ol class="breadcrumb">
+            <li>
+            <a href="#" v-on:click=" $r( 'home' )">{{ 'home' | i18n }}</a>
+            </li>
+            <li class="active">
+            <strong>{{ title | i18n }}</strong>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="wrapper wrapper-content animated fadeInRight margin-bottom-50">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="wrapper wrapper-content animated fadeInUp">
+              <div class="ibox">
+                <div class="ibox-content">
+                  <usermessages></usermessages>
+                  <div class="row m-b-sm m-t-sm">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">{{ 'organization' | i18n }}</label>
+                      <div class="col-sm-10">{{ organization.name }}</div>
+                    </div>
+                  </div>
+                  <div class="row m-b-sm m-t-sm">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">{{ 'template' | i18n }}</label>
+                      <div class="col-sm-10">{{ template.name }}</div>
+                    </div>
+                  </div>
+                  <div class="row m-b-sm m-t-sm">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">{{ 'name' | i18n }}</label>
+                      <div class="col-sm-10">
+                        <textarea class="form-control" v-model="name" placeholder="{{ 'template_name' | i18n }}"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row m-b-sm m-t-sm">
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <a class="btn btn-white" v-on:click="$r( 'cancel' )">{{ 'back' | i18n }}</a> 
+                        <a class="btn btn-primary" v-on:click="$r( 'submit' )">{{ submit | i18n }}</a> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    
+    <script type="text/template" id="template-list-item">
+      <tr>
+        <td class="middle text-center col-md-1">
+          <user-avatar :id="template.ownedby"></user-avatar>
+        </td>
+        <td class="project-title">
+          <a href="#" v-on:click=" $r( 'select')">{{template.name}}</a>
+          <br>
+          <span>{{organization.name}}</span>
+        </td>
+        <td class="project-actions">
+          <a class="btn btn-white btn-circle btn-sm" v-on:click=" $r( 'duplicate' )" title="{{ 'duplicate' | i18n }}"><i class="fa fa-copy"></i></a>
+          <a href="#" class="btn btn-white btn-circle btn-sm" v-on:click=" $r( 'select')"><i class="fa fa-chevron-right"></i></a>
+        </td>
+      </tr>
+    </script>
+
+    <script type="text/template" id="templates-list">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+              <div class="ibox-content">
+                <loading v-if="is_schedules_fetching || is_availability_fetching"></loading>
+                <div v-if="is_schedules || is_availability">
+                  <div class="row">
+                    <div class="col-lg-10">
+                      <a class="btn btn-white margin-bottom-10" v-on:click="$r( 'create' )"><i class="fa fa-plus"></i> {{ create | i18n }}</a>
+                    </div>
+                    <div class="col-lg-2 text-right">
+                      <a v-on:click="$r( 'schedules' )" title="{{ 'schedule_templates' | i18n }}" 
+                        class="btn btn-circle" v-bind:class="{ 'btn-info': (is_schedules || is_schedules_fetching), 'btn-white': !(is_schedules || is_schedules_fetching)}"><i class="fa fa-calendar"></i></a>
+                      <a v-on:click="$r( 'availability' )" title="{{ 'availability_templates' | i18n }}" 
+                        class="btn btn-circle" v-bind:class="{ 'btn-info': (is_availability || is_availability_fetching), 'btn-white': !(is_availability || is_availability_fetching)}"><i class="fa fa-thumbs-up"></i></a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="project-list">
+                        <div class="text-muted text-center" v-if="no_data">{{ 'no_data' | i18n }}</div>
+                        <table class="table table-hover" v-if="!no_data">
+                          <tbody>
+                            <tr is="template-list-item" v-for="t in templates" :template="t"></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="templates">
+      <component :is="content" keep-alive></component>
+    </script>
+    
+    <script type="text/template" id="schedule-calendar">
+      <calendar view="week" keep-alive></calendar>
+    </script>
+
+    
+    <script type="text/template" id="schedule-controls">
+      <div class="col-sm-6 schedule-controls" style="padding-left: 0px !important;">
+        <spinner v-if="is_busy"></spinner>
+        <span v-if="!is_busy && !readonly && (is_enabled_on || is_enabled_off)">
+          <a href="#" class="btn btn-circle btn-white btn-sm" title="{{ 'refresh' | i18n }}" v-on:click="$r( 'refresh' )">
+            <i class="fa fa-refresh"></i>
+          </a>
+
+          <a href="#" class="btn btn-circle btn-white btn-sm" title="{{ autoModeLabel | i18n }}" v-on:click="$r( 'toggle' )">
+            <i class="fa fa-{{autoModeIcon}}"></i>
+          </a>
+          <a href="#" class="btn btn-white btn-circle btn-sm" title="{{ 'run' | i18n }}" v-on:click=" $r( 'run' )">
+            <i class="fa fa-cogs"></i>
+          </a>
+          <a v-if="can_publish" href="#" class="btn btn-white btn-circle btn-sm" title="{{ 'publish' | i18n }}" v-on:click=" $r( 'publish' )">
+            <i class="fa fa-share-alt"></i>
+          </a>
+          <a href="#" class="btn btn-white btn-circle btn-sm" title="{{ 'print' | i18n }}" v-on:click="$r( 'print' )">
+            <i class="fa fa-print"></i>
+          </a>
+        </span>
+      </div>
+      <div class="col-sm-6 text-right" style="padding-right: 0px !important;">
+      </div>
+    </script>
+
+    <script type="text/template" id="schedule-shifts">
+      <div class="row">
+        <div class="col-sm-12">
+          <schedule-controls></schedule-controls>
+        </div>
+      </div>
+      <div class="row margin-top-20">
+        <div v-bind:class="{ 'col-sm-12' : readonly, 'col-sm-9' : !readonly }">
+          <schedule-calendar keep-alive></schedule-calendar>
+        </div>
+        <div v-bind:class="{ 'hidden' : readonly, 'col-sm-3' : !readonly }">
+          <div class="text-center margin-bottom-25">
+            <div class="btn-group">
+              <button class="btn btn-sm" v-bind:class="{ 'btn-info': inspector, 'btn-white': !inspector }" 
+                v-on:click="$r( 'inspector' )" type="button" title="{{ 'shift_inspector' | i18n }}"><i class="fa fa-pencil"></i></button>
+              <button class="btn btn-sm"  v-bind:class="{ 'btn-info': keys, 'btn-white': !keys }" 
+                v-on:click="$r( 'keys' )" type="button" title="{{ 'key_shortcuts' | i18n }}"><i class="fa fa-keyboard-o"></i></button>
+            </div>
+          </div>
+          <div v-bind:class="{ hidden: !keys }" class="margin-top-10">
+            <key-shortcuts keepalive></key-shortcuts>  
+          </div> 
+          <div v-bind:class="{ hidden: !inspector }" class="margin-top-10">
+            <shift-inspector mode="schedule" keep-alive></shift-inspector>
+          </div>
+        </div>
+      </div>
+    </script>
+    
+    <script type="text/template" id="schedule-chart">
+      <div class="margin-top-30">
+        <div class="text-center">
+          <div v-if="is_ready" style="display: inline-block; margin-left: 10px;" v-for="c in constraints">
+            {{{ c | constraint-label }}}
+          </div>
+        </div>
+        <div v-if="is_nodata" class="text-center text-muted margin-top-25">
+          {{ 'no_chart_data' | i18n }}
+        </div>
+        <canvas v-bind:class="{ hidden: is_nodata }"  class="line" height="155" width="250" style="height: 100%; width: 100%; max-height: 155px; max-width: 100%;"></canvas>
+      </div>
+    </script>
+
+    <script type="text/template" id="schedule-stats">
+        <ul class="stat-list">
+          <li>
+          <small><strong>{{ 'total' | i18n}}</strong></small>
+          <div class="stat-percent"><strong>{{schedule.stats.quality}}%</strong></div>
+          <div class="progress progress-mini">
+            <div v-bind:style="{width: (schedule.stats.quality + '%')}" class="progress-bar"></div>
+          </div>
+          </li>
+          <li v-if="has_staffing_constraints">
+          <small>{{ schedule.stats.staffing }} {{'staffing_constraints' | i18n | lowercase }} {{ 'out_of' | i18n }} {{ schedule.stats.staffing_total}} </small>
+          <div class="stat-percent">{{q_staffing}}%</div>
+          <div class="progress progress-mini">
+            <div v-bind:style="{width: (q_staffing + '%')}" class="progress-bar"></div>
+          </div>
+          </li>
+          <li v-if="has_strong_constraints">
+          <small>{{ schedule.stats.hard }} {{'strong_constraints' | i18n | lowercase }} {{ 'out_of' | i18n }} {{ schedule.stats.hard_total}}</small>
+          <div class="stat-percent">{{q_hard}}%</div>
+          <div class="progress progress-mini">
+            <div v-bind:style="{width: (q_hard + '%')}" class="progress-bar"></div>
+          </div>
+          </li>
+          <li v-if="has_soft_constraints">
+          <small>{{ schedule.stats.soft }} {{'soft_constraints' | i18n | lowercase }} {{ 'out_of' | i18n }} {{ schedule.stats.soft_total}} </small>
+          <div class="stat-percent">{{q_soft}}%</div>
+          <div class="progress progress-mini">
+            <div v-bind:style="{width: (q_soft + '%')}" class="progress-bar"></div>
+          </div>
+          </li>
+        </ul>
+    </script>
+  
+    <script type="text/template" id="schedule-log">
+      <div class="col-md-12">
+        <div class="text-center alert alert-warning">
+          {{ 'for_debugging_purposes' | i18n }}
+        </div>
+        <ul v-if="is_ready" class="todo-list m-t small-list">
+          <li v-for="e in events">
+            <span>{{{ e.severity | severity-indicator }}} {{ e | scheduleEvent }}</span>
+            <span class="pull-right">{{ e.elapsed }} {{ 'sec' | i18n }}</span>
+          </li>
+        </ul>
+        <div v-if="is_nodata" class="text-muted">
+          {{ 'no_log_data' | i18n }}
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="schedule-constraint-list-item">
+      <tr>
+        <td class="middle text-center col-md-1">
+          <user-avatar :id="constraint.user"></user-avatar>
+        </td>
+        <td class="project-title">
+          <strong>{{ constraint.indicator | i18n }}</strong>
+          <br/>
+          {{ constraint | constraint-value-comparison }}
+        </td>
+        <td class="text-center">
+          {{{ constraint.type  | constraint-type-badge }}}
+        </td>
+        <td class="text-center">
+         {{{ constraint.strong | constraint-severity-badge }}}</strong>
+        </td>
+      </tr>
+    </script>
+
+    <script type="text/template" id="schedule-constraints">
+      <div>
+        <div class="text-center margin-top-20">
+          <button class="btn btn-white btn-sm" type="button" v-on:click="$r('toggle')"><i class="fa fa-{{buttonIcon}}"></i> {{ buttonLabel | i18n }}</button>
+        </div>
+        <div class="project-list margin-top-10" v-if="is_ready">
+          <div class="text-center text-muted margin-top-20" v-bind:class="{ hidden: !isEmpty}">
+            {{ 'no_data' | i18n }}
+          </div>
+          <table class="table table-hover" v-bind:class="{ hidden: isEmpty }">
+            <tbody>
+              <tr is="schedule-constraint-list-item" v-for="c in constraints" :constraint="c"></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="margin-top-20" v-if="!is_ready">
+          <loading></loading>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="schedule-summary">
+      <div class="row m-b-sm m-t-sm">
+        <label class="col-sm-2 control-label"> {{'quality' | i18n }} </label>
+        <div class="col-sm-6">
+          <schedule-stats keep-alive></schedule-stats>
+        </div>
+      </div>
+      <div class="row m-b-sm m-t-sm">
+        <label class="col-sm-2 control-label"> {{'constraints_detail' | i18n }} </label>
+        <div class="col-sm-6">
+          <schedule-constraints keep-alive></schedule-constraints>
+        </div>
+      </div>
+      <div class="row m-b-sm m-t-sm">
+        <label class="col-sm-2 control-label"> {{'path_to_quality' | i18n }} </label>
+        <div class="col-sm-6">
+          <schedule-chart keep-alive></schedule-chart>
+        </div>
+      </div>
+      <div class="row m-b-sm m-t-sm">
+        <label class="col-sm-2 control-label"> {{'log' | i18n }} </label>
+        <div class="col-sm-6">
+          <schedule-log keep-alive></schedule-log>
+        </div>
+      </div>
+    </script>
+
+  
+    <script type="text/template" id="schedule-participant">
+      <div class="col-lg-3">
+        <div class="contact-box center-version">
+          <a>
+            <user-avatar :id="participant.ownedby"></user-avatar>
+            <h3 class="m-b-xs"><strong>{{ profile.first }} {{ profile.last}}</strong></h3>
+          </a>
+          
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+              <div class="progress">
+                <div style="width: {{std_ratio}}%" v-if="std" class="progress-bar progress-bar-std">
+                  <span class="sr-only"></span>
+                </div>
+                <div style="width: {{extra_ratio}}%" v-if="extra" class="progress-bar progress-bar-xtime">
+                  <span class="sr-only"></span>
+                </div>
+                <div style="width: {{training_ratio}}%" v-if="training" class="progress-bar progress-bar-training">
+                  <span class="sr-only"></span>
+                </div>
+                <div style="width: {{idle_ratio}}%" v-if="idle" class="progress-bar progress-bar-idle">
+                  <span class="sr-only"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+          
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+              <div class="progress">
+                <div style="width: {{av_ratio}}%" class="progress-bar progress-bar-available">
+                  <span class="sr-only">30% Complete (success)</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+
+            <div class="text-center" v-for="c in counters">
+              <strong>{{ c.value }}</strong> {{ c.unit | i18n }} {{ 'of' | i18n }} {{ c.name | i18n }}
+            </div>
+
+          <div class="margin-bottom-20"></div>
+
+          <!-- <div class="contact-box-footer">
+             <div class="m-t-xs btn-group">
+              <a class="btn btn-xs btn-white"><i class="fa fa-phone"></i> Call </a>
+              <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Email</a>
+              <a class="btn btn-xs btn-white"><i class="fa fa-user-plus"></i> Follow</a>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="schedule-participants">
+      <div class="row m-b-sm m-t-sm">
+        <div class="col-sm-12">
+          <div v-if="is_ready">
+            <schedule-participant v-for="p in participants"
+              :participant="p"></schedule-participant>
+          </div>
+          <loading v-if="is_loading"></loading>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="schedule-info">
+      <usermessages></usermessages>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'period' | i18n }}</label>
+          <div class="col-sm-10">
+            {{ 'week' | i18n }} {{ schedule.week }} {{ 'of' | i18n }} {{ schedule.year}}
+          </div>
+        </div>
+      </div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'status' | i18n }}</label>
+          <div class="col-sm-10">
+            {{{ schedule.status | status-badge }}} 
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'owner' | i18n }}</label>
+          <div class="col-sm-10">
+            <user-chooser :selected="schedule.ownedby" :readonly="readonly" keep-alive> </user-chooser><br/>
+            <a href="#" v-if="!readonly" class="btn btn-primary btn-sm" v-on:click="$r( 'change_owner' )" >{{ change_owner | i18n }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'created' | i18n }}</label>
+          <span class="col-sm-10">{{ schedule.created | epoch_to_date }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'created_by' | i18n }}</label>
+          <span class="col-sm-10">{{ creator.first }} {{ creator.last }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'organization' | i18n }}</label>
+          <div class="col-sm-10">{{organization.name}}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'template' | i18n }}</label>
+          <div class="col-sm-10">{{template.name}}</div>
+        </div>
+      </div>
+    </script>
+    
+    <script type="text/template" id="schedule-edit">
+      <div class="row wrapper page-heading white-bg">
+        <div class="col-sm-12">
+          <h2>{{ 'week' | i18n}} {{schedule.week}} {{ 'of' | i18n }} {{schedule.year}}
+              {{{ schedule.status | status-badge }}}
+              {{{ schedule.stats.quality | quality-badge }}} 
+          </h2>
+          <ol class="breadcrumb">
+            <li>
+              <a href="#" v-on:click=" $r( 'home' )">{{ 'home' | i18n }}</a>
+            </li>
+            <li>
+              <a href="#">{{ organization.name }}</a>
+            </li>
+            <li>
+              <a href="#">{{ template.name }}</a>
+            </li>
+            <li>
+              <strong>{{ 'schedule_detail' | i18n }}</strong>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="wrapper wrapper-content animated fadeInRight margin-bottom-50">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="tabs-container">
+              <ul class="nav nav-tabs">
+                <li v-bind:class="{ active: is_shifts }">
+                  <a v-on:click="$r('shifts')">{{ 'shifts' | i18n }}</a>
+                </li>
+                <li v-bind:class="{ active: is_summary }">
+                  <a v-on:click="$r('summary')">{{ 'summary' | i18n }}</a>
+                </li>
+                <li v-bind:class="{ active: is_participants }">
+                  <a v-on:click="$r('participants')">{{ 'participants' | i18n }}</a>
+                </li>
+                <li v-bind:class="{ active: is_info }">
+                  <a v-on:click="$r('info')">{{ 'info' | i18n }}</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane" v-bind:class="{active: is_shifts}">
+                  <div class="panel-body">
+                    <schedule-shifts keep-alive></schedule-shifts>
+                  </div>
+                </div>
+                <div class="tab-pane" v-bind:class="{active: is_summary}">
+                  <div class="panel-body">
+                    <schedule-summary keep-alive></schedule-summary>
+                  </div>
+                </div>
+                <div class="tab-pane" v-bind:class="{active: is_participants}">
+                  <div class="panel-body">
+                    <schedule-participants keep-alive></schedule-participants>
+                  </div>
+                </div>
+                <div class="tab-pane" v-bind:class="{active: is_info}">
+                  <div class="panel-body">
+                    <schedule-info  keep-alive></schedule-info>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 height-50">
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="schedule-create">
+      <div class="row wrapper page-heading white-bg">
+        <div class="col-sm-12">
+          <h2>{{ 'schedule_create' | i18n }}</h2>
+          <ol class="breadcrumb">
+            <li>
+            <a href="#" v-on:click=" $r( 'home' )">{{ 'home' | i18n }}</a>
+            </li>
+            <li class="active">
+            <strong>{{ 'schedule_create' | i18n }}</strong>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="wrapper wrapper-content animated fadeInRight margin-bottom-50">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="wrapper wrapper-content animated fadeInUp">
+              <div class="ibox">
+                <div class="ibox-content">
+                  <usermessages></usermessages>
+                  <loading v-if="!(is_ready || is_creating)"></loading> 
+                  <div v-bind:class="{hidden: !(is_ready || is_creating)}">
+                    <div class="row m-b-sm m-t-sm">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">{{ 'template' | i18n }}</label>
+                        <div class="col-sm-10">
+                          <template-chooser></template-chooser>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row m-b-sm m-t-sm">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">{{ 'period' | i18n }}</label>
+                        <div class="col-sm-10">
+                          <!-- <week-chooser></week-chooser> -->
+                          {{ weekTitle }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="row m-b-sm m-t-sm">
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                          <a class="btn btn-white" v-on:click="$r( 'cancel' )">{{ 'back' | i18n }}</a> 
+                          <a class="btn btn-primary" v-on:click="$r( 'submit' )">{{ submit | i18n }}</a> 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+  
+    
+    <script type="text/template" id="schedule-list-item">
+      <tr>
+        <td class="middle text-center col-md-1">
+          <user-avatar :id="schedule.ownedby"></user-avatar>
+        </td>
+        <td class="middle text-center col-md-1">
+          {{{ schedule.status | status-badge }}} 
+        </td>
+        <td class="middle text-center width-50">
+          <i class="fa fa-lg fa-{{autoIcon}}"></i>
+        </td>
+        <td class="middle project-title">
+            <a href="#" v-on:click=" $r( 'select')">
+              {{ 'week' | i18n }} {{schedule.week}} {{ 'of' | i18n }} {{schedule.year}}</a>
+            <br>
+            <span>{{organization.name}} <i class="fa fa-caret-right"></i> {{template.name}} </span>
+        </td>
+        <td class="project-actions">
+          {{{ schedule.stats.quality | quality-badge }}} 
+          <a href="#" class="btn btn-white btn-circle btn-sm" title="{{ 'open' |i18n }}" v-on:click=" $r( 'select')"><i class="fa fa-chevron-right"></i></a>
+        </td>
+      </tr>
+    </script>
+
+    <script type="text-template" id="list-nav">
+      <div class="col-md-6">
+        <h2>{{title}}</h2>
+      </div>
+      <div class="col-md-6 text-right">
+        <button type="button" class="btn btn-white btn-circle btn-sm" v-on:click="$r( 'now' )"><i class="fa fa-crosshairs"></i></button>
+        <div class="btn-group margin-right-10">
+          <button type="button" class="btn btn-circle btn-white btn-sm" v-on:click="$r( 'prev' )"><i class="fa fa-chevron-left"></i></button>
+          <button class="btn btn-white btn-sm " v-if="is_day_enabled" v-on:click="$r( 'day' )" v-bind:class="{ active: is_day }">{{ 'day' | i18n }}</button>
+          <button class="btn btn-white btn-sm" v-if="is_week_enabled" v-on:click="$r( 'week' )" v-bind:class="{ active: is_week }">{{ 'week' | i18n }}</button>
+          <button class="btn btn-white btn-sm" v-if="is_month_enabled" v-on:click="$r( 'month' )" v-bind:class="{ active: is_month }">{{ 'month' | i18n }}</button>
+          <button type="button" class="btn btn-circle btn-white btn-sm" v-on:click="$r( 'next' )"><i class="fa fa-chevron-right"></i> </button>
+        </div>
+        
+        <button class="btn-circle btn btn-white margin-right-10" v-on:click="$r( 'create' )" title="{{'add_schedule' | i18n }}"><i class="fa fa-plus"></i></button>
+        
+        <div class="btn-group">
+          <button class="btn btn-circle" v-bind:class="{ 'btn-info' : mine, 'btn-white': !mine }" v-on:click="$r( 'mine' )" title="{{'mine' | i18n }}"><i class="fa fa-user"></i></button>
+          <button class="btn btn-circle" v-bind:class="{ 'btn-info' : all, 'btn-white': !all }" v-on:click="$r( 'all' )" title="{{'all' | i18n }}"><i class="fa fa-users"></i></button>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="schedules-list">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+              <div class="ibox-content">
+                <div class="row">
+                  <list-nav :week="true" :month="true" keep-alive></list-nav>
+                </div>
+                <div class="row">  
+                  <div class="col-md-12">
+                    <div class="project-list" v-if="is_ready && has_schedules ">
+                      <table class="table table-hover">
+                        <tbody>
+                          <tr is="schedule-list-item" v-for="s in schedules" :schedule="s"></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="text-center text-muted margin-top-20" v-if="is_ready && !has_schedules">
+                      {{ 'no_data' | i18n }}
+                    </div>
+                    <loading v-if="is_fetching"></loading>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="schedules">
+      <!-- <component :is="content" keep-alive></component> -->
+      <div v-bind:class="{ hidden: !is_list }"><schedules-list keep-alive></schedules-list></div>
+      <div v-bind:class="{ hidden: !is_create }"><schedule-create keep-alive></schedules-create></div>
+      <div v-bind:class="{ hidden: !is_edit }"><schedule-edit  keep-alive></schedule-edit></div>
+    </script>
+
+
+    <script type="text/template" id="calendar">
+
+      <div class="row" v-if="nav">
+        <div class="col-md-6">
+          <h2 v-if="!isTemplate">{{title}}</h2>
+        </div>
+        <div class="col-md-6 text-right calendar-controls">
+          <button v-if="!isTemplate" type="button" class="btn btn-circle btn-white btn-sm" v-on:click="$r( 'now' )"><i class="fa fa-crosshairs"></i></button>
+
+          <div class="btn-group" v-if="!isTemplate">
+            <button type="button" class="btn btn-circle btn-white btn-sm" v-on:click="$r( 'prev' )"><i class="fa fa-chevron-left"></i></button>
+            <button class="btn btn-white btn-sm " v-if="is_day_enabled" v-on:click="$r( 'day' )" v-bind:class="{ active: is_day }">{{ 'day' | i18n }}</button>
+            <button class="btn btn-white btn-sm" v-if="is_week_enabled" v-on:click="$r( 'week' )" v-bind:class="{ active: is_week }">{{ 'week' | i18n }}</button>
+            <button class="btn btn-white btn-sm" v-if="is_month_enabled" v-on:click="$r( 'month' )" v-bind:class="{ active: is_month }">{{ 'month' | i18n }}</button>
+            <button type="button" class="btn btn-circle btn-white btn-sm" v-on:click="$r( 'next' )"><i class="fa fa-chevron-right"></i> </button>
+          </div>       
+        </div>
+      </div>
+
+      <component :is="content" keep-alive></component>
+    </script>
+
+    <script type="text/template" id="calendar-day">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="height-25 width-58"></th>
+            <th class="text-center height-25">
+              {{ title }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="s in slots">
+            <td class="text-right height-25 width-58">{{s.time | hm_time }}</td>
+            <td class="text-center height-25 calendar-content" v-bind:class="{ 'calendar-today' : day.today }">
+              <calendar-slot :time="s.time" :day="period"></calendar-slot>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </script>
+
+    <script type="text/template" id="calendar-week">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="height-25 calendar-heading " style="width: 5%;" ></th>
+            <th v-for="d in days" class="text-center height-25 calendar-heading " style="width: 13.6%;">
+              {{ d.title }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="s in slots">
+            <td class="text-right height-25 calendar-heading " style="width: 5%;" >{{s.time | hm_time }}</td>
+            <td v-for="d in days" class="text-center height-25 calendar-content " style="width: 13.6%;"
+              v-bind:class="{ 'calendar-today' : d.today, 'calendar-slot-active' : editable }">
+              <calendar-slot :time="s.time" :day="d.time"></calendar-slot>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </script>
+
+    <script type="text/template" id="calendar-month">
+      <table class="table calendar-border-bottom">
+        <thead>
+          <tr>
+            <th v-for="d in days" class="text-center height-25">
+              {{ d.title }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="w in weeks">
+            <td v-for="d in w.days" class="text-center height-80 calendar-border-left calendar-border-right text-right" 
+              v-bind:class="{ 'calendar-today' : d.today, 'calendar-disabled' : !d.month }">
+              {{ d.title }}
+              <calendar-month-slot :day="d"></calendar-month-slot>       
+            </td>
+          </tr>    
+        </tbody>
+      </table>        
+    </script>
+
+    <script type="text/template" id="calendar-slot">
+      <div class="full-width text-center full-height" v-on:click="$r( 'add' )" style="z-index: 0 !important;">
+        <!-- <small class="text-muted">{{key}}</small> -->
+        <calendar-item v-for="i in items" :item="i" :index="$index" :sibblings="items.length" :editable="editable"></calendar-item>
+      </div>
+    </script>
+
+    <script type="text/template" id="calendar-month-slot">
+      <div class="full-width text-center full-height" style="z-index: 0 !important;">
+        <!-- <small class="text-muted">{{key}}</small> -->
+        <calendar-month-item v-for="i in items" :item="i" :sibblings="items.length" :editable="editable"></calendar-month-item>
+      </div>
+    </script>
+
+    <script type="text/template" id="calendar-item">
+      <div tabindex="{{ tabindex }}" draggable="{{editable}}" class="calendar-item calendar-item-full calendar-item-{{ item.type }} calendar-item-{{item.type}}-{{item.stats}} calendar-item-{{ item.status }} calendar-item-{{xtime}} calendar-item-{{conflict}}"
+        v-bind:style="{ 'margin-top': (34*item.start_min/60-1) +'px', height: (duration*4/60 + duration *100/60 +1 ) +'%', width: width + '%', left: left + '%' }" 
+        style="z-index: 999 !important; margin-right: 1px;" data-toggle="tooltip" 
+        data-placement="{{tooltipPlacement}}" data-html="true" data-title="{{{ item | shift-preview }}}" 
+        v-on:keydown.16="$r( 'shift_down' )" v-on:keyup.16="$r( 'shift_up' )"
+        v-on:keydown.17="$r( 'ctrl_down' )" v-on:keyup.17="$r( 'ctrl_up' )"
+        v-on:keydown.18="$r( 'alt_down' )" v-on:keyup.18="$r( 'alt_up' )"
+        v-on:keyup.up="$r( 'up' )" v-on:keyup.right="$r( 'right' )" v-on:keyup.left="$r( 'left' )" v-on:keyup.down="$r( 'down' )">
+        <a class="full-width full-height" v-on:click.stop="$r( 'open' )"></a>    
+      </div>
+    </script>
+
+    <script type="text/template" id="calendar-month-item">
+      <span class="color-{{ item | shift-style }}" data-toggle="tooltip" data-placement="{{tooltipPlacement}}" data-html="true" data-title="{{{ item | shift-preview }}}">
+        <i class="fa fa-circle"></i>
+      </span>
+    </script>
+      
+    <script type="text/template" id="template-chooser">
+      <div>
+        <input type="text" id="user-select" class="form-control full-width typeahead" autocomplete="off">
+      </div>
+    </script>
+
+    <script type="text/template" id="week-chooser">
+      <select class="select">
+        <option v-for="w in weeks" value="{{w.id}}">{{ 'week' | i18n }} {{w.week}} {{ 'of' | i18n}} {{w.year}}</option>
+      </select>
+    </script>
+
+    <script type="text/template" id="template-select">
+      <select class="select">
+        <option v-for="t in templates" value="{{t.id}}">{{ t.name }}</option>
+      </select>
+    </script>
+
+    <script type="text/template" id="profile-select">
+      <select class="select" data-none-selected-text="{{ 'no_selection' | i18n }}">
+        <option v-for="p in profiles" value="{{p.id}}">{{ p.name }}</option>
+      </select>
+    </script>
+
+    <script type="text/template" id="notifications">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+              <div class="ibox-content">
+                <div class="text-right">
+                  <h2 class="pull-left">{{ 'notifications' | i18n }}</h2>
+                  <a class="btn btn-white margin-bottom-10" title="{{'mark_all_read' | i18n }}" v-on:click="$r( 'mark_all_read' )" v-if="is_unread"> 
+                    <i class="fa fa-eye"></i>
+                  </a>
+                  <a class="btn btn-white  margin-bottom-10" title="{{ 'purge_read' | i18n }}" v-on:click="$r( 'purge' )" v-if="is_read || is_purging">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                  <a class="btn btn-white margin-bottom-10" v-on:click="$r( 'toggle' )">{{ toggle | i18n }}</a>
+                </div>
+                <div class="project-list">
+                  <table class="table table-hover">
+                    <tbody>
+                      <tr is="notification-list-item" v-for="n in notes" :notification="n"></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="issues">
+      <component :is="content" keep-alive></component>
+    </script>
+
+
+    <script type="text/template" id="issues-list">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+              <div class="ibox-content">
+                <div class="project-list">
+                  <div class="text-right">
+                    <release-chooser></release-chooser>
+                    <button class="btn btn-white margin-left-5" v-on:click="$r( 'clear_filter' )"><i class="fa fa-filter"></i> {{ 'clear_filter' | i18n }}</button>
+
+                    <button class="btn-circle btn btn-white margin-left-5 margin-right-5" v-on:click="$r( 'create' )" title="{{'create_issue' | i18n }}"><i class="fa fa-plus"></i></button>
+                    <div class="btn-group">
+                      <button class="btn btn-circle" v-bind:class="{'btn-info' : (is_open || is_fetching_open), 'btn-white': !(is_open || is_fetching_open)}" 
+                        v-on:click="$r( 'toggle' )" title="{{'open' | i18n }}"><i class="fa fa-wrench"></i></button>
+                      <button class="btn btn-circle" v-bind:class="{'btn-info' : (is_closed || is_fetching_closed), 'btn-white': !(is_closed || is_fetching_closed)}" 
+                        v-on:click="$r( 'toggle' )" title="{{'closed' | i18n }}"><i class="fa fa-check"></i></button>
+                    </div>
+                  </div>
+
+                  <div class="text-center margin-top-20">
+                    <h5>{{ 'completion_date' | i18n }}: {{ progress | completion-date }}</h5>
+                    <div class="progress">
+                      <div style="width: {{ progressPercent }}%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{progressPercent}}" role="progressbar" class="progress-bar progress-bar-info">
+                        <span class="sr-only">{{ progressPercent}}%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <table class="table table-hover" v-if="!(is_fetching_open || is_fetching_closed)">
+                    <tbody>
+                      <tr is="issue-list-item" v-for="b in issues" :issue="b"></tr>
+                    </tbody>
+                  </table>
+                  <div v-if="is_fetching_open || is_fetching_closed">
+                    <loading></loading>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="issue-list-item">
+      <tr>
+        <td class="middle text-center col-md-1">
+          <user-avatar :id="issue.ownedby"></user-avatar>
+        </td>
+        <td class="project-title">
+          <a href="#" v-on:click=" $r( 'select')"><span>#</span>{{issue.num}} {{issue.summary}}</a>
+          <br>
+          <!-- <small><i class="fa fa-plus-square"></i> {{ issue.created | epoch_to_date }}</small> -->
+        </td>
+        <td class="project-actions">
+          {{{ issue.status | issue-status-badge }}} 
+        </td>
+        <td class="project-actions">
+          {{{ issue.estimate | issue-estimate-badge }}} 
+        </td>
+        <td class="project-actions">
+          {{{ issue.release| issue-release-badge }}} 
+        </td>
+      </tr>
+    </script>
+    
+    <script type="text/template" id="issue-create">
+      <div class="row wrapper page-heading white-bg">
+        <div class="col-sm-12">
+          <h2>{{ 'create_issue' | i18n }}</h2>
+          <ol class="breadcrumb">
+            <li>
+            <a href="#" v-on:click=" $r( 'home' )">{{ 'home' | i18n }}</a>
+            </li>
+            <li class="active">
+            <strong>{{ 'create_issue' | i18n }}</strong>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="wrapper wrapper-content animated fadeInRight margin-bottom-50">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="wrapper wrapper-content animated fadeInUp">
+              <div class="ibox">
+                <div class="ibox-content">
+                  <usermessages></usermessages>
+                  <div class="row m-b-sm m-t-sm">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">{{ 'summary' | i18n }}</label>
+                      <div class="col-sm-10">
+                        <textarea class="form-control" v-model="summary" placeholder="{{ 'issue_summary' | i18n }}"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row m-b-sm m-t-sm">
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <button type="button" class="btn btn-white" v-on:click="$r( 'cancel' )">{{ 'back' | i18n }}</button>
+                        <button type="button" class="btn btn-primary" v-on:click="$r( 'submit' )">{{ submit | i18n }}</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="issue">
+      <div class="row wrapper page-heading white-bg">
+        <div class="col-sm-12">
+          <h2>{{{ issue.status | status-indicator }}} <span>#</span>{{issue.num}} {{issue.summary}}</h2>
+          <ol class="breadcrumb">
+            <li>
+            <a href="#" v-on:click=" $r( 'home' )">{{ 'home' | i18n }}</a>
+            </li>
+            <li class="active">
+            <strong>{{ 'issue_detail' | i18n }}</strong>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="wrapper wrapper-content animated fadeInRight margin-bottom-50">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="tabs-container">
+              <ul class="nav nav-tabs">
+                <li v-bind:class="{ active: is_info}">
+                  <a v-on:click="$r('info')">{{ 'info' | i18n }}</a>
+                </li>
+                <li v-bind:class="{ active: is_discussion}">
+                  <a v-on:click="$r('discussion')">{{ 'discussion' | i18n }}</a>
+                </li>
+                <li v-bind:class="{ active: is_files}">
+                  <a v-on:click="$r('files')">{{ 'files' | i18n }}</a>
+                </li>
+                <li v-bind:class="{ active: is_activity}">
+                  <a v-on:click="$r('activity')">{{ 'activity' | i18n }}</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane" v-bind:class="{active: is_info}">
+                  <div class="panel-body">
+                    <issue-info keep-alive></issue-info> 
+                  </div>
+                </div>
+                <div class="tab-pane" v-bind:class="{active: is_discussion}">
+                  <div class="panel-body">
+                    <issue-discussion keep-alive></issue-discussion> 
+                  </div>
+                </div>
+                <div class="tab-pane" v-bind:class="{active: is_files}">
+                  <div class="panel-body">
+                    <issue-files keep-alive></issue-files> 
+                  </div>
+                </div>
+                <div class="tab-pane" v-bind:class="{active: is_activity}">
+                  <div class="panel-body">
+                    <issue-activity keep-alive></issue-activity> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 height-50">
+        </div>
+      </div>
+    </script>
+  
+
+
+
+
+    <script type="text/template" id="issue-info">
+      <usermessages></usermessages>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'summary' | i18n }}</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" v-if="!readonly" v-model="issue.summary">{{issue.summary}}</textarea> 
+            <span v-if="readonly"">{{issue.summary}}</span><br/>
+            <a href="#" v-if="!readonly" class="btn btn-primary btn-sm" v-on:click="$r( 'summary' )" >{{ summary | i18n }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'status' | i18n }}</label>
+          <div class="col-sm-10">
+            <span v-if="readonly">{{{ issue.status | issue-status-badge }}}</span> 
+            <div v-if="!readonly">
+              <status-chooser :selected="issue.status" keep-alive></status-chooser><br/>
+              <div style="margin-top: 10px;">
+                <a href="#" class="btn btn-primary btn-sm" v-on:click="$r( 'change_status' )" >{{ change_status | i18n }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'estimate' | i18n }}</label>
+          <div class="col-sm-10">
+            <span v-if="readonly">{{{ issue.estimate | issue-estimate-badge }}}</span> 
+            <div v-if="!readonly">
+              <estimate-chooser :selected="issue.estimate" keep-alive></estimate-chooser><br/>
+              <div style="margin-top: 10px;">
+                <a href="#" class="btn btn-primary btn-sm" v-on:click="$r( 'change_estimate' )" >{{ change_estimate | i18n }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'release' | i18n }}</label>
+          <div class="col-sm-10">
+            <release-chooser :selected="issue.release" keep-alive></release-chooser><br/>
+            <div style="margin-top: 10px;">
+              <a href="#" class="btn btn-primary btn-sm" v-on:click="$r( 'change_release' )" >{{ change_release | i18n }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row m-b-sm m-t-sm">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'owner' | i18n }}</label>
+          <div class="col-sm-10">
+            <user-chooser :selected="issue.ownedby" :readonly="true" keep-alive></user-chooser>
+          </div>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'created' | i18n }}</label>
+          <span class="col-sm-10">{{ issue.created | epoch_to_date }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">{{ 'created_by' | i18n }}</label>
+          <span class="col-sm-10">{{ creator.first }} {{ creator.last }}</span>
+        </div>
+      </div>
+    </script>
+    
+    <script type="text-template" id="issue-file">
+      <tr>
+        <td class="text-center col-md-12">  
+          <img v-if="is_ready && is_image" v-bind:src="src" style="max-width: 100%;"></img>
+          <div v-if="(is_ready || is_downloading ) && !is_image">
+            {{ 'no_preview' | i18n }}<br/><br/>
+            <button v-on:click="$r( 'download' )" class="btn btn-white"><i class="fa fa-download"></i> {{ 'download' | i18n }}<br/><small class="text-muted">{{ 'chrome_and_ff_only' | i18n }}</small></button>
+          </div>
+          <spinner v-if="is_fetching"></spinner>
+        </td>
+      </tr>
+    </script>
+
+    
+    <script type="text/template" id="issue-discussion-create">
+        <div class="col-sm-12">
+          <usermessages></usermessages>
+        </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">{{ 'new_comment' | i18n }}</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" v-model="new_comment" placeholder="{{ 'new_comment' | i18n }}"></textarea> 
+          <button class="btn btn-primary btn-sm margin-top-10" v-on:click="$r( 'submit' )" >{{ submit | i18n }}</button>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="issue-discussion-comment">
+      <tr>
+        <td class="middle text-center col-md-1">
+          <user-avatar :id="comment.createdby"></user-avatar>
+        </td>
+        <td class="project-title">
+          {{ comment.text }}
+          <p class="text-muted">
+            <small>{{ comment.created | epoch_to_date_time }}</small>
+          </p>
+        </td>
+      </tr>
+    </script>
+
+    <script type="text/template" id="issue-discussion-list">
+      <label class="col-sm-2 control-label">{{ 'comments' | i18n }}</label>
+      <div class="col-sm-10">
+        <div class="project-list" v-if="!is_fetching">
+          <div v-if="!has_comments">{{ 'no_data' | i18n }}</div>
+          <table v-if="has_comments" class="table">
+            <tbody>
+              <tr is="issue-discussion-comment" v-for="c in comments" :comment="c"></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="text-center" v-if="is_fetching">
+          <loading></loading>
+        </div>
+      </div>
+    </script>
+
+
+    <script type="text/template" id="issue-discussion">
+      <div class="row margin-top-10">
+        <issue-discussion-create keep-alive></issue-discussion-create>
+      </div>
+      <div class="row margin-top-20">
+        <issue-discussion-list keep-alive></issue-discussion-list>
+      </div>
+    </script>
+    
+    <script type="text/template" id="issue-files">
+      <div class="row">
+        <div class="col-sm-12">
+          <usermessages></usermessages>
+          <label for="file">
+            <button class="btn btn-white">
+              <i class="fa fa-upload"></i> 
+              {{ 'upload_file' | i18n}}
+              <i v-if="is_uploading" class="fa fa-refresh fa-spin"></i>
+            </button>
+          </label>
+          <input v-if="!readonly" id="file" type="file" class="hidden"></input>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="project-list" v-if="!is_fetching">
+            <table class="table">
+              <tbody>
+                <tr is="issue-file" v-for="f in files" :file="f"></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-center" v-if="is_fetching">
+            <loading></loading>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="issue-activity">
+      <div class="project-list">
+        <table class="table table-hover">
+          <tbody>
+            <tr is="issue-event-list-item" v-for="e in events" :event="e"></tr>
+          </tbody>
+        </table>
+      </div>  
+    </script>
+
+    <script type="text/template" id="issue-event-list-item">
+      <tr>
+        <td class="middle text-center col-md-1">
+          <user-avatar :id="event.ownedby"></user-avatar>
+        </td>
+        <td class="middle text-center col-md-1">
+          <i class="fa fa-{{icon}} fa-2x"></i>
+        </td>
+        <td class="project-title">
+          <span class="text-{{style}}">{{{ summary }}}</span><br>
+        </td>
+        <td class="text-right">
+          {{event.created | epoch_to_date_time }}
+        </td>
+      </tr>
+    </script>
+
+    
+    <script type="text/template" id="status-chooser">
+      <select>
+        <option v-for="s in statuses" value="{{s}}" data-content="{{ s | status-label }}">{{ 'status_'+s | i18n }}</option>
+      </select>
+    </script>
+    
+    <script type="text/template" id="estimate-chooser">
+      <select>
+        <option v-for="e in estimates" value="{{e}}" data-content="{{ e | estimate-label }}">{{ 'estimate_'+e | i18n }}</option>
+      </select>
+    </script>
+    
+    <script type="text/template" id="release-chooser">
+      <select>
+        <option v-for="r in releases" value="{{r}}" data-content="{{ r | release-label }}">{{r}}</option>
+      </select>
+    </script>
+
+    <script type="text/template" id="loading">
+      <div class="text-center">
+        <small style="color: #ccc; text-transform: uppercase; letter-spacing: 2px; ">{{ 'loading' | i18n }}</small>
+        <div class="sk-spinner sk-spinner-wave margin-top-20">
+          <div class="sk-rect1"></div>
+          <div class="sk-rect2"></div>
+          <div class="sk-rect3"></div>
+          <div class="sk-rect4"></div>
+          <div class="sk-rect5"></div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="spinner">
+      <div class="text-center" style="display: inline-block;">
+        <div class="sk-spinner sk-spinner-wave">
+          <div class="sk-rect1"></div>
+          <div class="sk-rect2"></div>
+          <div class="sk-rect3"></div>
+          <div class="sk-rect4"></div>
+          <div class="sk-rect5"></div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="dashboard">
+      dashboard here
+    </script>
+    
+    <script type="text/template" id="empty"></script>
+    <script src="/js/setImmediate.js"></script>
+    <script src="/js/moment.min.js"></script>
+    <script src="/js/modernizr.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.ui.widget.js"></script>
+    <script src="/js/jquery.iframe-transport.js"></script>
+    <script src="/js/jquery.fileupload.js"></script>
+    <script src="/js/jquery.filedownload.js"></script>
+    <script src="/js/jquery.binarytransport.js"></script>
+    <script src="/js/jquery.scroll.min.js"></script>
+    <script src="/js/file-saver.min.js"></script>
+    <script src="/js/download.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap-typeahead.min.js"></script>
+    <script src="/js/bootstrap-select.min.js"></script>
+    <script src="/js/bootstrap-timepicker.js"></script>
+    <script src="/js/jquery.total-storage.min.js"></script>
+    <script src="/js/query-string.js"></script>
+    <script src="/js/chart.min.js"></script>
+    <script src="/js/vue.js"></script>
+    <script src="/js/sockjs.min.js"></script>
+    <script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/js/inspinia.js"></script>
+    <script src="/js/fsm.js"></script>
+    <script src="/config.js"></script>
+    <script src="/i18n.js"></script>
+    <script src="/app.js"></script>
+    <script src="/js/effects.js"></script>
+
+  </body>
+</html>

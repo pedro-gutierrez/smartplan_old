@@ -1,0 +1,20 @@
+redis-cli KEYS members-* | xargs redis-cli DEL
+redis-cli KEYS tags-* | xargs redis-cli DEL
+redis-cli KEYS organizations-* | xargs redis-cli DEL
+redis-cli KEYS organization-* | xargs redis-cli DEL
+redis-cli KEYS contribs-* | xargs redis-cli DEL
+redis-cli KEYS contrib-* | xargs redis-cli DEL
+redis-cli KEYS key-schedule-* | xargs redis-cli DEL
+redis-cli KEYS stats-* | xargs redis-cli DEL
+redis-cli KEYS template-* | xargs redis-cli DEL
+redis-cli KEYS templates-* | xargs redis-cli DEL
+redis-cli KEYS schedule-* | xargs redis-cli DEL
+redis-cli KEYS schedules-* | xargs redis-cli DEL
+redis-cli KEYS shift-* | xargs redis-cli DEL
+redis-cli KEYS shifts-* | xargs redis-cli DEL
+redis-cli KEYS names-* | xargs redis-cli DEL
+redis-cli KEYS event-* | xargs redis-cli DEL
+redis-cli KEYS events-* | xargs redis-cli DEL
+redis-cli KEYS notifications-* | xargs redis-cli DEL
+redis-cli KEYS notification-* | xargs redis-cli DEL
+

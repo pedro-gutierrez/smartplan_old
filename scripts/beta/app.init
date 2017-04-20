@@ -1,0 +1,1 @@
+curl -i -k -X POST https://beta.smartplan.team/api/app.init -H "app:a66b914d-ef72-43d4-b8b2-c19e9035e8e2" -H "session:010d8164-b8d4-445e-b4c7-ef9b1188c2ff" -H "content-type:application/json" -H "lang:en"

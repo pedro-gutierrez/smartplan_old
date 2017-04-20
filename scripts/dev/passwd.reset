@@ -1,0 +1,1 @@
+redis-cli KEYS user-* | xargs -I key redis-cli hset key password 0fbb2d689b8936b2eed21cb120c5118c2b7c483c
