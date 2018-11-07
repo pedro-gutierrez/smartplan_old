@@ -5,7 +5,11 @@ quick: clean compile run
 compile: base lib engine rest
 
 run:
-	@erl +pc unicode -smp enable -sname smartplan -boot release/smartplan -config smartplan
+	@export SMARTPLAN_ENV=prod; erl +pc unicode -smp enable -sname smartplan -boot release/smartplan -config smartplan
+
+noshell:
+	@export SMARTPLAN_ENV=prod; erl -detached -noshell +pc unicode -smp enable -sname smartplan -boot release/smartplan -config smartplan
+
 
 clean:
 	@rm -rf *.dump
@@ -53,7 +57,7 @@ rebar_dep=@rm -rf _deps; mkdir -p _deps; cd _deps; git clone $2 $1; cd $1; pwd; 
 rebar_c_dep=@rm -rf _deps; mkdir -p _deps; cd _deps; git clone $2 $1; cd $1; git checkout $3; rebar get-deps; rebar compile; cd ../..; rm -rf deps/$1; mkdir -p deps/$1/ebin; cp -rf _deps/$1/ebin/* deps/$1/ebin; mkdir -p deps/$1/priv; cp -rf _deps/$1/priv/* deps/$1/priv; rm -rf _deps
 
 
-deps: dep_eredis dep_poolboy dep_jiffy dep_cowlib dep_ranch dep_cowboy dep_sockjs dep_uuid dep_pbkdf2 dep_erlbus
+deps: dep_eredis dep_poolboy dep_jiffy dep_cowlib dep_ranch dep_cowboy dep_uuid dep_pbkdf2 dep_erlbus
 
 dep_eredis:
 	$(call rebar_c_dep,"eredis","https://github.com/wooga/eredis.git","v1.0.8")
@@ -74,7 +78,7 @@ dep_cowboy:
 	$(call rebar_dep,"cowboy","https://github.com/ninenines/cowboy.git","1.0.4")
 	
 dep_sockjs:
-	$(call rebar_dep,"sockjs","https://github.com/cm/sockjs-erlang.git","jiffy")
+	$(call rebar_dep,"sockjs","https://github.com/ably-forks/sockjs-erlang","master")
 
 dep_uuid:
 	$(call make_dep,"uuid","https://github.com/avtobiff/erlang-uuid.git", "v0.4.7")
