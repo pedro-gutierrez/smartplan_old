@@ -5,7 +5,7 @@ quick: clean compile run
 compile: base lib engine rest
 
 run:
-	@export SMARTPLAN_ENV=prod; erl +pc unicode -smp enable -sname smartplan -boot release/smartplan -config smartplan
+	@export SMARTPLAN_ENV=prod; erl +pc unicode -smp enable -name smartplan@127.0.0.1 -boot release/smartplan -config smartplan
 
 noshell:
 	@export SMARTPLAN_ENV=prod; erl -detached -noshell +pc unicode -smp enable -sname smartplan -boot release/smartplan -config smartplan
@@ -52,6 +52,12 @@ rest:
 
 docker:
 	@docker build -t pedrogutierrez/smartplan:latest .
+	@docker stop smartplan; docker rm smartplan; docker run --name smartplan --net=host pedrogutierrez/smartplan:latest
+
+redis:
+	@docker stop redis; docker rm redis; docker run --name redis -d -p 6379:6379 redis
+
+
 
 
 make_dep=@rm -rf _deps; mkdir -p _deps; cd _deps; git clone $2 $1; cd $1; git checkout $3; make; cd ../..; rm -rf deps/$1; mkdir -p deps/$1/ebin; cp -rf _deps/$1/ebin/* deps/$1/ebin; rm -rf _deps

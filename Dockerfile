@@ -11,3 +11,4 @@ RUN git clone https://github.com/pedro-gutierrez/smartplan.git
 WORKDIR /build/smartplan
 RUN wget https://github.com/rebar/rebar/wiki/rebar; chmod +x rebar; make deps; 
 RUN make compile; make release
+CMD ["make", "run"]
