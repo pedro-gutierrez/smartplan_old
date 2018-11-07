@@ -50,6 +50,10 @@ rest:
 	@rm -rf apps/rest/ebin/*.beam
 	@lfec -o apps/rest/ebin apps/rest/src/*.lfe
 
+docker:
+	@docker build -t pedrogutierrez/smartplan:latest .
+
+
 make_dep=@rm -rf _deps; mkdir -p _deps; cd _deps; git clone $2 $1; cd $1; git checkout $3; make; cd ../..; rm -rf deps/$1; mkdir -p deps/$1/ebin; cp -rf _deps/$1/ebin/* deps/$1/ebin; rm -rf _deps
 
 rebar_dep=@rm -rf _deps; mkdir -p _deps; cd _deps; git clone $2 $1; cd $1; pwd; git checkout $3; rebar get-deps; rebar compile; cd ../..; rm -rf deps/$1; mkdir -p deps/$1/ebin; cp -rf _deps/$1/ebin/* deps/$1/ebin; rm -rf _deps
