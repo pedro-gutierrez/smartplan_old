@@ -50,9 +50,11 @@ rest:
 	@rm -rf apps/rest/ebin/*.beam
 	@lfec -o apps/rest/ebin apps/rest/src/*.lfe
 
-docker:
+docker-build:
 	@docker build -t pedrogutierrez/smartplan:latest .
-	@docker stop smartplan; docker rm smartplan; docker run --name smartplan --net=host pedrogutierrez/smartplan:latest
+
+docker-run:
+	@docker stop smartplan; docker rm smartplan; docker run --name smartplan --net=host -it -p 7004:7004 pedrogutierrez/smartplan:latest
 
 redis:
 	@docker stop redis; docker rm redis; docker run --name redis -d -p 6379:6379 redis
