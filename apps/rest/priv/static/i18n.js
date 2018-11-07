@@ -1785,9 +1785,9 @@ var i18n = {
     },
 
     copyright: {
-      en: "2016 Okogu",
-      fr: "2016 Okogu",
-      es: "2016 Okogu"
+      en: "2018 Netscale Technologies",
+      fr: "2018 Netscale Technologies",
+      es: "2018 Netscale Technologies"
     },
 
     send_us_mail: {
