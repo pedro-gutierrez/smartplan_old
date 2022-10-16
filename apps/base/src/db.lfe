@@ -12,7 +12,7 @@
         #(name #(local eredis)) 
         #(worker_module eredis) 
         #(size 10) 
-        #(max_overflow 10)) '())))))
+        #(max_overflow 10)) '("redis", 6379, 0, ""))))))
 
 (defun log (cmd)
   (case (kit:cfg 'redis 'verbose)
@@ -85,12 +85,12 @@
   (cmd (list #"EXPIRE" (key k) t ) (lambda (_)
     (funcall next))))
 
-(defun del (k next )
+(defun del (k next)
   (cmd (list #"DEL" (key k)) (lambda (_)
     (funcall next))))
 
-(defun del (k) 
-  (del k (lambda () )))
+(defun del (k)
+  (del k (lambda ())))
 
 (defun get (k next) 
   (cmd (list #"GET" (key k)) (lambda (v)

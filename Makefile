@@ -26,7 +26,7 @@ status:
 
 update:
 	@git pull
-    
+
 release:
 	@rm -rf release/*.boot
 	@rm -rf release/*.script
@@ -82,19 +82,19 @@ dep_jiffy:
 
 dep_cowlib:
 	$(call make_dep,"cowlib","https://github.com/ninenines/cowlib.git","1.3.0")
-	
+
 dep_ranch:
 	$(call make_dep,"ranch","https://github.com/ninenines/ranch.git","1.2.1")
-	
+
 dep_cowboy:
 	$(call rebar_dep,"cowboy","https://github.com/ninenines/cowboy.git","1.0.4")
-	
+
 dep_sockjs:
 	$(call rebar_dep,"sockjs","https://github.com/ably-forks/sockjs-erlang","master")
 
 dep_uuid:
 	$(call make_dep,"uuid","https://github.com/avtobiff/erlang-uuid.git", "v0.4.7")
-	
+
 dep_pbkdf2:
 	$(call rebar_dep,"pbkdf2","https://github.com/basho/erlang-pbkdf2.git","2.0.0")
 
